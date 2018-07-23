@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, BrowserRouter} from 'react-router-dom';
 
-import NoAuthRoute from '../Routes/auth-route';
-import AuthRoute from '../Routes/auth-route';
 import Login from '../../containers/Login/Login';
 import Register from '../../containers/Register/Register';
 import AppContent from '../../containers/AppContent/AppContent';
@@ -21,13 +19,13 @@ class App extends Component {
 
   render() {
     return (
-      <BrowserRouter>      
-        <Switch>
-          <NoAuthRoute exact path='/' component={Login}/>
-          <NoAuthRoute  path='/register' component={Register}/>
-          <AuthRoute path="/" component={AppContent} />
-        </Switch>
-      </BrowserRouter>      
+      <BrowserRouter>
+          <Switch>
+            <Route exact path='/' component={Login}/>
+            <Route path='/register' component={Register}/>
+            <Route path='/AppContent' component={AppContent} />
+          </Switch>
+      </BrowserRouter>
     );
   }
 }
