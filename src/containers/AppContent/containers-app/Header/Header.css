@@ -1,0 +1,7 @@
+.header{
+  background: rgb(134, 93, 187);
+  min-height: 7vh;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}

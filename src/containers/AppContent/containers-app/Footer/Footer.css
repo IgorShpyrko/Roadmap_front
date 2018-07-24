@@ -1,4 +1,4 @@
 .footer {
-  height: 50px;
+  min-height: 6vh;
   background: #EEE;
 }

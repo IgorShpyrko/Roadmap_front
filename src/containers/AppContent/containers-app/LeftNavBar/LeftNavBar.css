@@ -1,33 +1,56 @@
-.left-visible-div{
-  background: #A05;
-  height: 500px;
+.left-visible-nav{
+  transition: 1s ease-in-out;
+  left: 0px;
   width: 300px;
-  transition: 0.5s ease-in-out;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-  transform: scaleX(1);
-    -webkit-transform: scaleX(1);
-    -ms-transform: scaleX(1);
-  
-    
 }
 
-.left-hidden-div{
-  background: #A05;
-  width: 0;
-  height: 500px;
-  transition: 0.5s ease-in-out;
-    -webkit-transition: 0.5s ease-in-out;
-    -moz-transition: 0.5s ease-in-out;
-    -o-transition: 0.5s ease-in-out;
-  transform: scaleX(0);
-    -webkit-transform: scaleX(0);
-    -ms-transform: scaleX(0);
+.left-hidden-nav{
+  transition: 1s ease-in-out;
+  left: -300px;
+  width: 0px;
 }
 
 .nav-container{
-  -webkit-transform-origin: 0 0;
-  -ms-transform-origin: 0 0;
-  transform-origin: 0 0;
+  position: relative;
+  top: 0;
+  height: 85vh;
+  background: rgb(145, 55, 100);
+  float: left;
+}
+
+.nav-list{
+  margin: 0;
+  padding: 0;
+}
+
+.nav-element{
+  list-style-type: none;
+}
+
+.link_login{
+  color: #fff;
+  background-color: rgb(123, 80, 143);
+}
+
+.link_login:hover{
+  background-color: rgb(255, 188, 212);
+}
+
+.left-visible-nav .logo {
+  position: absolute;
+  right: 0;
+  transition: 1s ease-in-out;
+}
+
+.left-hidden-nav .logo {
+  position: absolute;
+  right: -340px;
+  transition: 1s ease-in-out;
+}
+
+.nav-header{
+  box-sizing: border-box;
+  background: linear-gradient(rgb(134, 93, 187), rgb(123, 80, 143));
+  margin: 0;
+  padding: 15px;
 }

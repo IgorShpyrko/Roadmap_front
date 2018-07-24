@@ -1,0 +1,14 @@
+.main {
+  background: rgb(193, 156, 211);
+  height: 85vh;
+  flex-grow: 1;
+  padding-top: 50px;
+}
+
+.main .collapsed{
+  
+}
+
+.main .full{
+
+}
