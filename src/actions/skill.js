@@ -48,8 +48,8 @@ export const createSkillsAdminAction = (skill, id) => dispatch => {
   });
 }
 
-export const editSkillsAction = (userID, skillID, mark) => dispatch => {
-  axios.put('http://localhost:3010/skills', {userID, skillID, mark})
+export const editSkillsAction = (userId, skillId, mark) => dispatch => {
+  axios.put('http://localhost:3010/skills', {userId, skillId, mark})
   .then(function (response) {
   })
   .catch(function (error) {

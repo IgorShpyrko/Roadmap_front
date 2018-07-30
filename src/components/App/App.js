@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 import Login from '../Login/Login';
 import Register from '../Register/Register';
@@ -19,23 +19,21 @@ class App extends Component {
 
   render() {
     const { checkAdmin } = this.props
-    console.log(checkAdmin)
+
     return (
-      <BrowserRouter>
-          <Switch>
-            <Route exact path='/login' 
-            render = {() => (checkAdmin ? (
-                <Redirect to='/' />
-               ) : <Login />
-              )} 
-            />/>
-            <Route path='/register' component={Register}/>
-            <Route path='/' render = {() => (!checkAdmin ? (
-                <Redirect to='/login' />
-               ) : <AppContent />
-              )} 
-            />/> />
-          </Switch>
+    <BrowserRouter>
+        <Switch>
+          <Route exact path='/login' 
+          render = {(props) => (!checkAdmin ? <Login {...props}/> : 
+              ( <Redirect to='/' /> )
+            )} 
+          />
+          <Route path='/register' component={Register}/>
+          <Route path='/' render = {(props) => (checkAdmin ? <AppContent {...props}/> :
+            ( <Redirect to='/login' /> ) 
+            )} 
+          />
+        </Switch>
       </BrowserRouter>
     );
   }

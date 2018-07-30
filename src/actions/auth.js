@@ -20,6 +20,7 @@ export const loginAction = (email, password) => dispatch => {
     localStorage.setItem('token', response.data);
     localStorage.setItem('id', jwt_decode(response.data).id);
     dispatch({ type: 'LOGIN_SUCCESS', payload: {token: response.data, MyID: jwt_decode(response.data).id }});
+    dispatch(getCheckAdminAction());
   })
   .catch(function (error) {  
     dispatch({ type: 'LOGIN_ERROR' });

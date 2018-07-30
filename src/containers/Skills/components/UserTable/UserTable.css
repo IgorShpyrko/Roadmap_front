@@ -1,10 +1,48 @@
 .user-table {
+  width: 100%;
   border: 1px solid black;
   border-collapse: collapse;
 }
 
+.user-table tr {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.user-table tr:hover {
+  background: #ddd
+}
+
+.user-table tr td {
+  border: 1px solid #ddd;
+}
+
+.user-table tr .table-title {
+  width: 60%;
+  text-align: left;
+}
+
+.user-table tr .table-mark {
+  width: 15%;
+  text-align: center;
+}
+
+.user-table tr .table-comment {
+  width: 25%;
+  text-align: center;
+}
+
 .user-table-nav {
-  max-width: 700px;
+  max-width: 80vw;
+}
+
+.table-mark-input {
+  background: rgba(0,0,0,0);
+  border: 0;
+}
+
+.table-mark-input:hover {
+  cursor: pointer;
 }
 
 .category-btn:hover {

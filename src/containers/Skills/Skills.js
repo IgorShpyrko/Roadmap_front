@@ -11,6 +11,10 @@ class Skills extends Component {
     this.props.getUserList(); 
   };
 
+  componentWillReceiveProps(nextProps) {
+    this.props.getUserList();
+  }
+
   render() {
     const { listUsers } = this.props;
     return (
@@ -21,10 +25,6 @@ class Skills extends Component {
           this.props.userById ? 
             <UserTable user={this.props.userById} /> :
             null 
-        
-        /*
-        заменить userSkill на userById!!!!!!!!!!!!!!!!!!
-        */
         }
       </div>
     );

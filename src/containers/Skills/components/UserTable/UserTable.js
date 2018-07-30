@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSkillsCategories } from '../../../../actions/getSkillsCategories' ;
+import { editSkillsAction } from '../../../../actions/skill' ;
 
 
 import './UserTable.css'
@@ -14,12 +15,31 @@ class UserTable extends Component{
   constructor(props) {
     super(props);
     this.state = {
+      choosedCategoryId: 1,
       choosedCategory: 'JavaScript'
     };
   }
 
-  handleChooseCategory = (e) => {
+  handleKeyDown = (e) => {
+    if(e.keyCode === 13){
+      this.props.editSkillsAction(
+        this.props.user.id,
+        this.state.skillId,
+        this.state.mark
+      )
+    }
+  }
+
+  handleChange = (skillId, e) => {
     this.setState({
+      mark: e.target.value,
+      skillId: skillId
+    })
+  }
+
+  handleChooseCategory = (id, e) => {
+    this.setState({
+      choosedCategoryId: id,
       choosedCategory: e.target.innerHTML
     })
   }
@@ -29,10 +49,35 @@ class UserTable extends Component{
   }
 
   render() {
-    console.log(this.props);
     const { skillsCategories } = this.props;
-    const userSkills = this.props.user.userSkills;
-    let skills = [];
+    
+    const userSkills = this.props.user.userSkills
+    let skills=[];
+    userSkills.filter((skill) => {
+      if(skill === null || skill.skill === null){
+        return
+      }
+      if(skill.skill.categoryId === this.state.choosedCategoryId){
+        skills.push (
+          <tr key={skill.id}>
+            <td className='table-title'>{skill.skill.title}</td>
+            <td className='table-mark'>
+              <input 
+                className='table-mark-input'
+                type="text" 
+                size='1' 
+                placeholder={skill.mark} 
+                onChange={(e) => {this.handleChange(skill.skillId, e)}} 
+                onKeyDown={this.handleKeyDown}/>
+            </td>
+            {skill.comment !== null ? 
+            <td className='table-comment'>{skill.comment}</td> : 
+            <td className='table-comment'>no comments</td>}
+          </tr>
+        )
+      }
+    })
+
     return (
       <div className="user-table-wrapper">
         <table className='user-table'>
@@ -42,18 +87,14 @@ class UserTable extends Component{
                 {this.state.choosedCategory}
               </th>
             </tr>
-            {userSkills.filter((skill, idx) => {
-              if(skill.skill === null){
-                return
-              }
-              // return (
-              //   <tr key={idx}>
-              //     <td>ksjdb</td>
-              //     {/* <td>{skill.skill.title}</td>
-              //     <td>{skill.skill.mark}</td> */}
-              //   </tr>
-              // )
-            })}
+            {skills.length === 0 ? null : 
+              <tr>
+                <th>Name</th>
+                <th>Mark</th>
+                <th>Comments</th>
+              </tr>
+            }
+            {skills.length === 0 ? null : skills}
           </tbody>
         </table>
         <div className="user-table-nav">
@@ -62,7 +103,7 @@ class UserTable extends Component{
               <button
                 className='category-btn'
                 key={category.id} 
-                onClick={this.handleChooseCategory}
+                onClick={(e) => {this.handleChooseCategory(category.id, e)}}
                 style={{
                   margin: '5px'
                 }}>
@@ -87,6 +128,9 @@ function mapDispathToProps(dispatch) {
     return {
       getSkillsCategories: function () {
         dispatch(getSkillsCategories());
+      },
+      editSkillsAction: function (userId, skillId, mark) {
+        dispatch(editSkillsAction(userId, skillId, mark));
       }
     }
 

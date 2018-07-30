@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 
 import Skills from '../../../Skills/Skills';
-import Match from '../../../Match/Match';
+// import Match from '../../../Match/Match';
 
 
 import './Main.css';
@@ -31,7 +31,7 @@ export default class Main extends Component {
         <Route path='/first' component={First}/>
         <Route path='/second' component={Second}/>
         <Route path='/skills' component={Skills}/>
-        <Route path='/match' component={Match}/>
+        {/* <Route path='/match' component={Match}/> */}
       </div>
     );
   }

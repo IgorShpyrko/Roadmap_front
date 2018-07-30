@@ -29,8 +29,7 @@ class Login extends Component {
   
   componentWillReceiveProps(nextProps) {
     if(nextProps.status === 'success'){
-      console.log(nextProps)
-      this.props.history.push('/');
+      this.props.history.replace('/');
     }
   }
   
