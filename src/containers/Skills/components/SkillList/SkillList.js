@@ -26,10 +26,10 @@ class SkillList extends Component {
     const { listUsers } = this.props
     return (
       <Dropdown 
-        value={this.state.user} 
+        value={this.state.user}
         options={listUsers} 
         onChange={this.onUserChange} 
-        style={{width:'150px'}} 
+        style={{width:'250px'}} 
         placeholder="Select User" 
         optionLabel="name"
       />

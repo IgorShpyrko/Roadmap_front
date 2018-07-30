@@ -10,7 +10,7 @@ export default class User extends Component {
       nextProps.user.userSkills.map(item => {
         sum += item.mark
       })
-      if(sum != this.state.markSum){
+      if(sum !== this.state.markSum){
         this.setState({
           markSum: sum
         })

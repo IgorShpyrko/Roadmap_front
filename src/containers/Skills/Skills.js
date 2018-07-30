@@ -12,9 +12,10 @@ class Skills extends Component {
   };
 
   render() {
-    const {listUsers} = this.props;
+    const { listUsers } = this.props;
     return (
-      <div className="general" >
+      <div className="skills" >
+        <div>Skills</div>
         <SkillList listUsers={listUsers} />   
         { 
           this.props.userById ? 

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Switch, Route, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
 
-import Login from '../../containers/Login/Login';
-import Register from '../../containers/Register/Register';
+import Login from '../Login/Login';
+import Register from '../Register/Register';
 import AppContent from '../../containers/AppContent/AppContent';
 
 import { checkAuthAction, getCheckAdminAction } from '../../actions/auth';
@@ -18,12 +18,23 @@ class App extends Component {
   }
 
   render() {
+    const { checkAdmin } = this.props
+    console.log(checkAdmin)
     return (
       <BrowserRouter>
           <Switch>
-            <Route exact path='/' component={Login}/>
+            <Route exact path='/login' 
+            render = {() => (checkAdmin ? (
+                <Redirect to='/' />
+               ) : <Login />
+              )} 
+            />/>
             <Route path='/register' component={Register}/>
-            <Route path='/AppContent' component={AppContent} />
+            <Route path='/' render = {() => (!checkAdmin ? (
+                <Redirect to='/login' />
+               ) : <AppContent />
+              )} 
+            />/> />
           </Switch>
       </BrowserRouter>
     );

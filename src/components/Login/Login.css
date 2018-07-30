@@ -1,0 +1,63 @@
+.link_login {
+  border: 10px ;
+  box-sizing: border-box ;
+  display: inline-block ;
+  font-family: Roboto, sans-serif ;
+  cursor: pointer ;
+  text-decoration: none !important; 
+  margin: 0px ;
+  padding: 0px ;
+  outline: none ;
+  font-size: inherit ;
+  font-weight: inherit ;
+  position: relative ;
+  height: 36px ;
+  line-height: 36px ;
+  width: 100% ;
+  border-radius: 2px ;
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms ;
+  background-color: rgb(0, 188, 212) ;
+  text-align: center ;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 6px, rgba(0, 0, 0, 0.12) 0px 1px 4px;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+}
+
+.login-btn {
+  border: 10px ;
+  box-sizing: border-box ;
+  display: inline-block ;
+  color: #fff; 
+  background-color: rgb(0, 188, 212);
+  cursor: pointer ;
+  height: 36px;
+  width: 200px;
+  border-radius: 2px;
+}
+
+.login-control-btns {
+  display: flex; 
+  justify-content: space-between;
+  width: 300px;
+  margin: 0;
+  padding: 10px 0 0 0;
+}
+
+.pswrd-input {
+  height: 26px;
+  width: 300px;
+  margin: 5px;
+}
+
+.login-input {
+  height: 26px;
+  width: 300px;
+  margin: 5px;
+}
