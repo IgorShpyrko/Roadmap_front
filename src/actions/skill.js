@@ -48,8 +48,19 @@ export const createSkillsAdminAction = (skill, id) => dispatch => {
   });
 }
 
-export const editSkillsAction = (userId, skillId, mark) => dispatch => {
+export const editSkillsMarkAction = (userId, skillId, mark) => dispatch => {
   axios.put('http://localhost:3010/skills', {userId, skillId, mark})
+  .then(function (response) {
+    // console.log(response.data.user)
+    console.log(response)
+    // dispatch({ type: 'SUCCES_GET_USER_BY_ID', payload: response.data.user });
+  })
+  .catch(function (error) {
+  });
+}
+
+export const editSkillsDispositionAction = (userId, skillId, disposition) => dispatch => {
+  axios.put('http://localhost:3010/skills', {userId, skillId, disposition})
   .then(function (response) {
   })
   .catch(function (error) {

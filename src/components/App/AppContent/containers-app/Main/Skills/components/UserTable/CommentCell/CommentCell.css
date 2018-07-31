@@ -1,0 +1,9 @@
+.table-comment {
+  width: 26%;
+}
+
+.table-comment input {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  outline: none;
+}

@@ -1,0 +1,37 @@
+.table-disposition-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+}
+
+.table-disposition {
+  width: 14%;
+  text-align: center;
+  border-spacing: 0;
+  padding: 0;
+  height: 30px;
+}
+
+.table-disposition:hover {
+  cursor: pointer;
+}
+
+.disposition-cell-apply-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0);
+
+}
+
+.disposition-cell-apply-btn img {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}

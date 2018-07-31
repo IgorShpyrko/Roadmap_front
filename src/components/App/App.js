@@ -4,7 +4,7 @@ import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import AppContent from '../../containers/AppContent/AppContent';
+import AppContent from '../App/AppContent/AppContent';
 
 import { checkAuthAction, getCheckAdminAction } from '../../actions/auth';
 

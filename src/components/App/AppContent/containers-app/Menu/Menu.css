@@ -1,0 +1,48 @@
+.left-visible-nav {
+  width: 300px;
+  transition: width 0.3s ease-in-out;
+}
+
+.left-hidden-nav {
+  width: 0;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-container {
+  /* background: rgba(116, 41, 86, 0.85); */
+  background: linear-gradient(rgb(113, 66, 134), rgb(150, 99, 133));
+  overflow-x: hidden;
+}
+
+.nav-header {
+  text-align: center;
+}
+
+.nav-header:hover {
+  cursor: pointer;
+}
+
+.nav-list {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-element {
+  list-style-type: none;
+}
+
+.link_login {
+  color: #fff;
+  background-color: rgb(123, 80, 143);
+}
+
+.link_login:hover {
+  background-color: rgb(255, 188, 212);
+}
+
+.nav-header {
+  box-sizing: border-box;
+  background: linear-gradient(rgb(134, 93, 187), rgb(123, 80, 143));
+  margin: 0;
+  padding: 15px;
+}

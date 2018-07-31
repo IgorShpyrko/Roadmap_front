@@ -1,0 +1,42 @@
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1em;
+}
+
+.user-table tr {
+  transition: all 0.5s ease-in-out;
+  border: 1px solid rgb(143, 39, 153);
+  height: 30px;;
+}
+
+.user-table tr:hover {
+  transition: all 0.5s ease-in-out;
+  background: rgb(240, 199, 245);
+}
+
+.user-table tr th {
+  padding: 5px;
+}
+
+.user-table tr td {
+  border: 1px solid rgb(143, 39, 153);
+  padding: 5px;
+}
+
+.user-table-nav {
+  max-width: 80vw;
+}
+
+.category-btn {
+  border: none;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+  background: rgb(191, 156, 208);
+}
+
+.category-btn:hover {
+  transition: all 0.5s ease-in-out;
+  background: rgb(175, 123, 182);
+  cursor: pointer;
+}
