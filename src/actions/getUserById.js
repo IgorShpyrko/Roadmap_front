@@ -10,11 +10,13 @@ axios.interceptors.request.use((config)=>{
 axios.interceptors.response.use(
   function(response){
     return response
-    }, function (error){
-      if (401 === error.response.status){  
-        localStorage.token;
-        window.location.reload();
+    },
+  function (error){
+    if (401 === error.response.status){  
+      localStorage.token;
+      window.location.reload();
     }
+    return null;
   } 
 );
 export const getUserById = (userId) => dispatch => {

@@ -7,7 +7,7 @@ export class MatchedUsers extends Component {
   
   render() {
     const { matchedUsers, selectedUser } = this.props;
-    
+
     if (!matchedUsers || matchedUsers.length === 0) {
       return null 
     }

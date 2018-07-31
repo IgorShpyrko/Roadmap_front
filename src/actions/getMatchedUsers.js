@@ -10,11 +10,13 @@ axios.interceptors.request.use((config)=>{
 axios.interceptors.response.use(
   function(response){
     return response
-    }, function (error){
-      if (401 === error.response.status){  
-        localStorage.token;
-        window.location.reload();
+    }, 
+  function (error){
+    if (401 === error.response.status){  
+      localStorage.token;
+      window.location.reload();
     }
+    return null;
   } 
 );
 export const getMatchedUsers = (filterId) => dispatch => {
@@ -26,6 +28,6 @@ export const getMatchedUsers = (filterId) => dispatch => {
   .then(function (response) {
     dispatch({ type: 'SUCCES_GET_MATCHED_USERS', payload: response.data });
   })
-  .catch(function (error) {  
+  .catch(function (error) {
   });
 }

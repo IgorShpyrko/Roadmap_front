@@ -1,24 +1,24 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { AutoCompleteSkillFilter } from './containers/AutoCompleteSkillFilter';
-import AutoCompleteUser from './containers/AutocopleteUser';
+import { AutoCompleteSkillFilter } from './containers/AutoCompleteSkillFilter/AutoCompleteSkillFilter';
 import { MatchedUsers } from './containers/MatchedUsers/MatchedUsers';
 import { getAllSkillsAction, getSkillList } from '../../../../../../actions/compare';
 import { getMatchedUsers } from '../../../../../../actions/getMatchedUsers';
 import { getUserList } from '../../../../../../actions/getUserList';
+import UserList from '../../../../../../containers/UserList/UserList';
+import SelectedUserSkills from './containers/SelectedUserSkills/SelectedUserSkills';
 
 import './Match.css';
 
 import 'primereact/resources/themes/omega/theme.css';
 import 'primereact/resources/primereact.min.css';
-import SelectedUser from './containers/SelectedUser/SelectedUser';
 
 class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      filters: null,
+      filtersId: null,
       selectedUser: null
     }
   }
@@ -34,7 +34,7 @@ class App extends React.Component{
       return item.id
     });
     this.setState({
-      filters: filterId.length !== 0 ? filterId : null
+      filtersId: filterId.length !== 0 ? filterId : null
     });
 
     this.props.getMatchedUsers(filterId);
@@ -48,11 +48,12 @@ class App extends React.Component{
 
   render() {
     const { skillList, listUsers, matchedUsers } = this.props;
-    const { filters, selectedUser } = this.state;
+    const { selectedUser } = this.state;
 
     return(
       <div className='compare-desk'>
-        <AutoCompleteUser users={listUsers} filters={filters} selectUser={(user) => {this.selectUser(user)}}/>
+        <UserList listUsers={listUsers} />
+        <SelectedUserSkills filtersId={this.state.filtersId} user={this.props.userById}/>
         <hr/>
         <AutoCompleteSkillFilter skillList={skillList} changeStateFilter={this.changeStateFilter}/>
         <hr/>
@@ -66,7 +67,8 @@ function mapStateToProps(state) {
   return{
     listUsers: state.getUserList,
     skillList: state.getSkillsList,
-    matchedUsers: state.getMatchedUsers
+    matchedUsers: state.getMatchedUsers,
+    userById: state.getUserById
   }
 }
 

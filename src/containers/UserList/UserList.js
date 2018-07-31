@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { Dropdown } from 'primereact/components/dropdown/Dropdown';
 
 
-import { getUserById } from '../../../../../../../../actions/getUserById';
+import { getUserById } from '../../actions/getUserById';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 
-import './SkillList.css'
+import './UserList.css'
 
-class SkillList extends Component {
+class UserList extends Component {
   constructor() {
       super();
       this.state = {
@@ -52,4 +52,4 @@ function mapDispathToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps,mapDispathToProps)(SkillList);
+export default connect(mapStateToProps,mapDispathToProps)(UserList);

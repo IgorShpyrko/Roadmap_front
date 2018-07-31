@@ -7,7 +7,7 @@ import 'primeicons/primeicons.css';
 
 export class AutoCompleteSkillFilter extends Component {
 
-  constructor(props) {``
+  constructor(props) {
     super(props);
     this.state = {
       skills: null,
@@ -50,7 +50,7 @@ export class AutoCompleteSkillFilter extends Component {
           suggestions={this.state.filteredSkill} 
           completeMethod={this.filterSkillMultiple}
           minLength={1} 
-          placeholder="Skills" 
+          placeholder="Skills"  
           field="name" 
           multiple={true} 
           onChange={(e) => {

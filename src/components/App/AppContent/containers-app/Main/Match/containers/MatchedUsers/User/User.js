@@ -4,11 +4,12 @@ export default class User extends Component {
   state = { 
     markSum: 0
   }
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
       let sum = 0;
 
       nextProps.user.userSkills.map(item => {
-        sum += item.mark
+        sum += item.mark;
+        return null
       })
       if(sum !== this.state.markSum){
         this.setState({

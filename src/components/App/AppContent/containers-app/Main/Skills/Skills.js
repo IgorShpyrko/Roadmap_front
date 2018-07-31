@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserList } from '../../../../../../actions/getUserList'; 
 import UserTable from './components/UserTable/UserTable';
-import SkillList from './components/SkillList/SkillList';
+import UserList from '../../../../../../containers/UserList/UserList';
 
 
 class Skills extends Component {
@@ -16,7 +16,7 @@ class Skills extends Component {
     return (
       <div className="skills" >
         <h3>Skills</h3>
-        <SkillList listUsers={listUsers} />   
+        <UserList listUsers={listUsers} />   
         { 
           this.props.userById ? 
             <UserTable user={this.props.userById} /> :
