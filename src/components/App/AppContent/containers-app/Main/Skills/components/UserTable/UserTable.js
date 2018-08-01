@@ -20,6 +20,17 @@ class UserTable extends Component{
     };
   }
 
+  handleChangeSkillComment = (...props) => {
+    if(props[0] === null){
+      return
+    };
+    this.props.editSkillsDispositionAction(
+      this.props.user.id,
+      props[0].skillId,
+      props[0].newComment
+    );
+  }
+
   handleChangeSkillDisposition = (...props) => {
     if(props[0] === null){
       return
@@ -81,8 +92,10 @@ class UserTable extends Component{
               skillDisposition={skill.disposition} 
               handleChangeSkillDisposition={this.handleChangeSkillDisposition}/>
 
-            <CommentCell 
-              skillComment={skill.comment}/>
+            <CommentCell
+              skillId={skill.skillId}
+              skillComment={skill.comment}
+              handleChangeSkillComment={this.handleChangeSkillComment}/>
           </tr>
         )
       }
@@ -90,6 +103,21 @@ class UserTable extends Component{
 
     return (
       <div className="user-table-wrapper">
+        <div className="user-table-nav">
+          {skillsCategories.map((category) => {
+            return (
+              <button
+                className='category-btn'
+                key={category.id} 
+                onClick={(e) => {this.handleChooseCategory(category.id, e)}}
+                style={{
+                  margin: '5px'
+                }}>
+                  {category.title}
+              </button>
+            )
+          })}
+        </div>
         <table className='user-table'>
           <tbody>
             <tr>
@@ -108,21 +136,6 @@ class UserTable extends Component{
             {skills.length === 0 ? null : skills}
           </tbody>
         </table>
-        <div className="user-table-nav">
-          {skillsCategories.map((category) => {
-            return (
-              <button
-                className='category-btn'
-                key={category.id} 
-                onClick={(e) => {this.handleChooseCategory(category.id, e)}}
-                style={{
-                  margin: '5px'
-                }}>
-                  {category.title}
-              </button>
-            )
-          })}
-        </div>
       </div>
     );
   }

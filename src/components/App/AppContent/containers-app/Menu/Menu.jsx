@@ -13,13 +13,13 @@ export default class Menu extends Component {
         <h4 className='nav-header' onClick={this.props.handleToggle}>Menu</h4>
         <ul className='nav-list'>
           <li className='nav-element'>
-            <NavLink className="link_login" to='/first'>
-              first
+            <NavLink className="link_login" to='/dashboard'>
+              Dashboard
             </NavLink>
           </li> 
           <li className='nav-element'>
-            <NavLink className="link_login" to='/second'>
-              second
+            <NavLink className="link_login" to='/diagram'>
+              Diagram
             </NavLink>
           </li>
           <li className='nav-element'>

@@ -26,7 +26,7 @@ export const getUserById = (userId) => dispatch => {
   
   axios.get(`http://localhost:3010/user/${userId}`, {})
   .then(function (response) {
-    console.log(response.data.data)
+    // console.log(response.data.data)
     dispatch({ type: 'SUCCES_GET_USER_BY_ID', payload: response.data.data });
   })
   .catch(function (error) {  

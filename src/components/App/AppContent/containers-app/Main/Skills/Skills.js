@@ -4,6 +4,7 @@ import { getUserList } from '../../../../../../actions/getUserList';
 import UserTable from './components/UserTable/UserTable';
 import UserList from '../../../../../../containers/UserList/UserList';
 
+import './Skills.css';
 
 class Skills extends Component {
 
@@ -12,15 +13,16 @@ class Skills extends Component {
   };
 
   render() {
-    const { listUsers } = this.props;
+
+    const { listUsers, userById } = this.props;
     return (
-      <div className="skills" >
-        <h3>Skills</h3>
+      <div className='skills' >
+        <h3 className='skills-title'>Skills</h3>
         <UserList listUsers={listUsers} />   
         { 
-          this.props.userById ? 
-            <UserTable user={this.props.userById} /> :
-            null 
+          userById ? 
+          <UserTable user={userById} />:
+          null 
         }
       </div>
     );

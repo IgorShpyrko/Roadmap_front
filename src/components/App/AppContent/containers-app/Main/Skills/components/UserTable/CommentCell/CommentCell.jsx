@@ -8,6 +8,20 @@ export default class CommentCell extends Component {
     editMode: false
   }
 
+  handleBlur = () => {
+    this.clearInput();
+    this.closeInput();
+  }
+
+  onApply = () => {
+    this.props.handleChangeSkillComment({
+      newMark: this.state.inputValue,
+      skillId: this.props.skillId
+    });
+    this.clearInput();
+    this.closeInput();
+  }
+
   clearInput = () => {
     this.setState({
       inputValue: ''
@@ -28,7 +42,7 @@ export default class CommentCell extends Component {
     };
 
     if(e.keyCode === 13){
-      console.log('applying')
+      this.onApply();
     }
   }
 
@@ -56,7 +70,8 @@ export default class CommentCell extends Component {
             type="text"
             value={this.state.inputValue}
             onChange={this.handleChangeInputValue}
-            onKeyDown={this.handleInputKeyDown}/> :
+            onKeyDown={this.handleInputKeyDown}
+            onBlur={this.handleBlur}/> :
         
           skillComment === null ? 
           <span>no comments</span> :
