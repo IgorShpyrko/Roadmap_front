@@ -4,10 +4,12 @@ import { getSkillsCategories } from '../../../../../../../../actions/getSkillsCa
 import { editSkillsMarkAction } from '../../../../../../../../actions/skill' ;
 import { editSkillsDispositionAction } from '../../../../../../../../actions/skill' ;
 
+import CategoryNav from './CategoryNav/CategoryNav';
 import TitleCell from './TitleCell/TitleCell';
 import MarkCell from './MarkCel/MarkCell';
 import DispositionCell from './DispositionCell/DispositionCell';
 import CommentCell from './CommentCell/CommentCell';
+import AddSkillContainer from './AddSkillContainer/AddSkillContainer';
 
 import './UserTable.css'
 
@@ -16,8 +18,19 @@ class UserTable extends Component{
     super(props);
     this.state = {
       choosedCategoryId: 1,
-      choosedCategory: 'JavaScript'
+      choosedCategoryName: 'JavaScript',
+      isActiveAddSkill: false,
+      addSkillBtnText: 'Create New Skill'
     };
+  }
+
+  handleToggleAddSkillContainer = () => {
+    this.setState((prevState, props) => {
+      return {
+        isActiveAddSkill: !prevState.isActiveAddSkill,
+        addSkillBtnText: prevState.addSkillBtnText === 'Create New Skill' ? 'Close' : 'Create New Skill'
+      }
+    })
   }
 
   handleChangeSkillComment = (...props) => {
@@ -56,7 +69,7 @@ class UserTable extends Component{
   handleChooseCategory = (id, e) => {
     this.setState({
       choosedCategoryId: id,
-      choosedCategory: e.target.innerHTML
+      choosedCategoryName: e.target.innerHTML
     });
   }
 
@@ -66,13 +79,19 @@ class UserTable extends Component{
 
   render() {
 
-    const { skillsCategories } = this.props;
-    const userSkills = this.props.user.userSkills;
-    const { choosedCategoryId } = this.state;
+    const { skillsCategories, user } = this.props;
+    const { choosedCategoryName, choosedCategoryId } = this.state;
 
-    let skills=[];
+    let skills= [
+      <tr key='header'>
+        <th>Name</th>
+        <th>Mark</th>
+        <th>Disposition</th>
+        <th>Comments</th>
+      </tr>
+    ];
 
-    userSkills.filter((skill) => {
+    user.userSkills.filter((skill) => {
       if(skill === null || skill.skill === null){
         return
       }
@@ -80,22 +99,23 @@ class UserTable extends Component{
         skills.push (
           <tr key={skill.id}>
             <TitleCell 
-              skillTitle={skill.skill.title} />
-
+              skillTitle={skill.skill.title}
+            />
             <MarkCell 
               skillId={skill.skillId} 
               skillMark={skill.mark} 
-              handleChangeSkillMark={this.handleChangeSkillMark}/>
-
+              handleChangeSkillMark={this.handleChangeSkillMark}
+            />
             <DispositionCell 
               skillId={skill.skillId} 
               skillDisposition={skill.disposition} 
-              handleChangeSkillDisposition={this.handleChangeSkillDisposition}/>
-
+              handleChangeSkillDisposition={this.handleChangeSkillDisposition}
+            />
             <CommentCell
               skillId={skill.skillId}
               skillComment={skill.comment}
-              handleChangeSkillComment={this.handleChangeSkillComment}/>
+              handleChangeSkillComment={this.handleChangeSkillComment}
+            />
           </tr>
         )
       }
@@ -103,36 +123,22 @@ class UserTable extends Component{
 
     return (
       <div className="user-table-wrapper">
-        <div className="user-table-nav">
-          {skillsCategories.map((category) => {
-            return (
-              <button
-                className='category-btn'
-                key={category.id} 
-                onClick={(e) => {this.handleChooseCategory(category.id, e)}}
-                style={{
-                  margin: '5px'
-                }}>
-                  {category.title}
-              </button>
-            )
-          })}
-        </div>
+        <CategoryNav skillsCategories={skillsCategories} handleChooseCategory={this.handleChooseCategory}/>
+        <button onClick={this.handleToggleAddSkillContainer}>{this.state.addSkillBtnText}</button>
+        {this.state.isActiveAddSkill ?
+          <AddSkillContainer 
+            choosedCategoryId={choosedCategoryId}
+            choosedCategoryName={choosedCategoryName}
+            user={user}/> :
+          null
+      }
         <table className='user-table'>
           <tbody>
             <tr>
               <th colSpan='4'>
-                {this.state.choosedCategory}
+                {this.state.choosedCategoryName}
               </th>
             </tr>
-            {skills.length === 0 ? null : 
-              <tr>
-                <th>Name</th>
-                <th>Mark</th>
-                <th>Disposition</th>
-                <th>Comments</th>
-              </tr>
-            }
             {skills.length === 0 ? null : skills}
           </tbody>
         </table>
@@ -140,7 +146,6 @@ class UserTable extends Component{
     );
   }
 }
-    
    
 function mapStateToProps(state) {
     return { 

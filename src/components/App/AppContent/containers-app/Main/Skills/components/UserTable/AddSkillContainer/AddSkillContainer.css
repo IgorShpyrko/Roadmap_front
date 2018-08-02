@@ -1,0 +1,51 @@
+.add-skill-wrapper {
+  width: 300px;
+  margin: 5px 0;
+  padding: 5px 0;
+  display: flex;
+  flex-flow: column; 
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.add-skill-component{
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-skill-input {
+  margin: 0;
+}
+
+.add-skill-btn {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  background: rgb(202, 202, 202);
+  height: 40px;
+  transition: all 0.3s ease-in-out;
+}
+
+.add-skill-btn:hover {
+  cursor: pointer;
+  background: rgb(202, 202, 202);
+  box-shadow: inset 0 0 10px 10px  rgb(191, 156, 208);
+  transition: all 0.3s ease-in-out;
+}
+
+.clearable-input {
+  position: relative;
+  display: inline-block;
+}
+
+.create-new-skill-name-clear-icon {
+  position: absolute;
+  right: 5px;
+  margin-top: 0;
+  opacity: 0.9;
+}
+
+.create-new-skill-name-clear-icon:hover {
+  cursor: pointer;
+}

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserList } from '../../../../../../actions/getUserList'; 
+import { getUserById } from '../../../../../../actions/getUserById'; 
 import UserTable from './components/UserTable/UserTable';
 import UserList from '../../../../../../containers/UserList/UserList';
 
@@ -9,7 +10,8 @@ import './Skills.css';
 class Skills extends Component {
 
   componentWillMount() {
-    this.props.getUserList(); 
+    this.props.getUserList();
+    this.props.getUserById(null);
   };
 
   render() {
@@ -40,6 +42,9 @@ function mapDispatchToProps(dispatch) {
   return {
     getUserList: function () {
       dispatch(getUserList());
+    },
+    getUserById: function () {
+      dispatch(getUserById());
     }
   };
 };
