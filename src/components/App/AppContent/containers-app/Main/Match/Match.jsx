@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import { AutoCompleteSkillFilter } from './containers/AutoCompleteSkillFilter/AutoCompleteSkillFilter';
@@ -14,7 +14,7 @@ import './Match.css';
 import 'primereact/resources/themes/omega/theme.css';
 import 'primereact/resources/primereact.min.css';
 
-class App extends React.Component{
+class App extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -43,14 +43,17 @@ class App extends React.Component{
     const { skillList, listUsers, matchedUsers } = this.props;
 
     return(
-      <div className='compare-desk'>
-        <UserList listUsers={listUsers} />
-        <SelectedUserSkills filtersId={this.state.filtersId} user={this.props.userById}/>
-        <hr/>
-        <AutoCompleteSkillFilter skillList={skillList} changeStateFilter={this.changeStateFilter}/>
-        <hr/>
-        <MatchedUsers matchedUsers={matchedUsers}/>
-      </div>
+      <React.Fragment>
+        <h3>Find Pair</h3>
+        <div className='compare-desk'>
+          <UserList listUsers={listUsers} />
+          <SelectedUserSkills filtersId={this.state.filtersId} user={this.props.userById}/>
+          <hr/>
+          <AutoCompleteSkillFilter skillList={skillList} changeStateFilter={this.changeStateFilter}/>
+          <hr/>
+          <MatchedUsers matchedUsers={matchedUsers}/>
+        </div>
+      </React.Fragment>
     )
   }
 }
