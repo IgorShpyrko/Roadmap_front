@@ -6,12 +6,22 @@ import './Avatar.css'
 
 class Avatar extends Component {
   state = {  }
+
+  handleLogOut = () => {
+    localStorage.clear();
+    document.location.reload(true);
+  }
+
   render() {
 
-    // console.log(this.props)
     return (
-      <div>
+      <div className='avatar-wrapper'>
+        <div className='avatar'>
         Avatar
+        </div>
+        <div className='log-out' onClick={this.handleLogOut}>
+          Log Out
+        </div>
       </div>
     );
   }
