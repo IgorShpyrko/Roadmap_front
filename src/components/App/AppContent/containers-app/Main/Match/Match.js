@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { AutoCompleteSkillFilter } from './containers/AutoCompleteSkillFilter/AutoCompleteSkillFilter';
-import { MatchedUsers } from './containers/MatchedUsers/MatchedUsers';
+import MatchedUsers from './containers/MatchedUsers/MatchedUsers';
 import { getAllSkillsAction, getSkillList } from '../../../../../../actions/compare';
 import { getMatchedUsers } from '../../../../../../actions/getMatchedUsers';
 import { getUserList } from '../../../../../../actions/getUserList';
@@ -18,15 +18,8 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      filtersId: null,
-      selectedUser: null
+      filtersId: null
     }
-  }
-
-  selectUser = (user) => {
-    this.setState({
-      selectedUser: user
-    })
   }
 
   changeStateFilter = (filters) => {
@@ -48,7 +41,6 @@ class App extends React.Component{
 
   render() {
     const { skillList, listUsers, matchedUsers } = this.props;
-    const { selectedUser } = this.state;
 
     return(
       <div className='compare-desk'>
@@ -57,7 +49,7 @@ class App extends React.Component{
         <hr/>
         <AutoCompleteSkillFilter skillList={skillList} changeStateFilter={this.changeStateFilter}/>
         <hr/>
-        <MatchedUsers matchedUsers={matchedUsers} selectedUser={selectedUser}/>
+        <MatchedUsers matchedUsers={matchedUsers}/>
       </div>
     )
   }

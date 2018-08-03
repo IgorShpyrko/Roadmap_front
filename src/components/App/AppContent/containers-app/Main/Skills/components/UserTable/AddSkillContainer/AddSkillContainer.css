@@ -22,16 +22,24 @@
   display: inline-block;
   border: none;
   border-radius: 10px;
-  background: rgb(202, 202, 202);
+  background:  rgb(183, 127, 216);
+  box-shadow: inset 0 0 5px 5px  rgb(191, 156, 208);
+  text-decoration: none;
+  outline: none;
   height: 40px;
   transition: all 0.3s ease-in-out;
 }
 
 .add-skill-btn:hover {
   cursor: pointer;
-  background: rgb(202, 202, 202);
-  box-shadow: inset 0 0 10px 10px  rgb(191, 156, 208);
+  background: rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 10px 10px  rgb(255, 156, 208);
   transition: all 0.3s ease-in-out;
+}
+
+.add-skill-btn:active{
+  background: rgb(255, 156, 208);
+  transition: all 0.1s;
 }
 
 .clearable-input {
@@ -40,12 +48,52 @@
 }
 
 .create-new-skill-name-clear-icon {
+  text-align: center;
+  width: 18.5px;
   position: absolute;
+  color: rgb(132, 14, 136);
+  border-radius: 50%;
+  background: r#FFF;
   right: 5px;
   margin-top: 0;
+  padding: 2px;
   opacity: 0.9;
+  transition: all 0.3s;
 }
 
 .create-new-skill-name-clear-icon:hover {
   cursor: pointer;
+  color: rgb(255, 255, 255);
+  border-radius: 50%;
+  background: rgb(161, 66, 180);
+  box-shadow: inset 0 0 3px 3px  #FFF;
+  transition: all 0.3s;
+}
+
+.create-new-skill-warning-text{
+  color: rgb(255, 0, 0);
+}
+
+.create-new-skill-warning-btn {
+  height: 30px;
+  padding-top: 10px;
+  text-align: center;
+  background: rgb(191, 156, 208);
+  border-radius: 10px;
+  box-shadow: inset 0 0 7px 7px  rgb(161, 66, 180);
+  transition: all 0.2s;
+}
+
+.create-new-skill-warning-btn:hover {
+  cursor: pointer;
+  border-radius: 6px;
+  background: rgb(161, 66, 180);
+  box-shadow: inset 0 0 5px 5px  rgb(255, 156, 208);
+  transition: all 0.2s;
+}
+
+.create-new-skill-warning-btn:active {
+  background: rgb(255, 156, 208);
+  transition: all 0.1s;
+
 }

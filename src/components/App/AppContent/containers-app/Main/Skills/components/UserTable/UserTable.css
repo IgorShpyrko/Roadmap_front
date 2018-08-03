@@ -40,3 +40,16 @@
   background: rgb(175, 123, 182);
   cursor: pointer;
 }
+
+.user-table-add-skill-btn {
+  background: rgb(161, 66, 180);
+  box-shadow: inset 0 0 3px 3px  rgb(191, 156, 208);
+  margin: 10px;
+  border: none;
+  border-radius: 10px;
+  height: 30px;
+}
+
+.user-table-add-skill-btn:hover {
+  cursor: pointer;
+}

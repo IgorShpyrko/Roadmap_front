@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 
+import './User.css';
+
 export default class User extends Component {
+
   state = { 
     markSum: 0
   }
+
   shouldComponentUpdate(nextProps) {
       let sum = 0;
 
@@ -17,7 +21,7 @@ export default class User extends Component {
         })
         return true;
       } 
-      return false;
+      return true;
   }
 
   componentWillMount() {
@@ -28,10 +32,11 @@ export default class User extends Component {
 
   render() {
     
-    const { user } = this.props
+    const { user, isSelected } = this.props;
 
+    const wrapperClassName = isSelected ? 'matched-user selected-user' : 'matched-user'
     return (
-      <div className='matched-user'>
+      <div className={wrapperClassName}>
         <div className='matched-user-name'>
           {user.name}
         </div>

@@ -18,8 +18,8 @@ export default class SelectedUserSkills extends Component {
 
     // const filteredSkills = 
 
-    console.log(filtersId);
-    console.log(userSkills);
+    // console.log(filtersId);
+    // console.log(userSkills);
 
     return (
       <div>

@@ -25,7 +25,12 @@ class UserTable extends Component{
   }
 
   handleToggleAddSkillContainer = () => {
-    this.setState((prevState, props) => {
+    if(this.state.isActiveAddSkill){
+      console.log('is active')
+    }
+    this.setState((prevState) => {
+      console.log(prevState);
+      console.log(this.state)
       return {
         isActiveAddSkill: !prevState.isActiveAddSkill,
         addSkillBtnText: prevState.addSkillBtnText === 'Create New Skill' ? 'Close' : 'Create New Skill'
@@ -69,7 +74,9 @@ class UserTable extends Component{
   handleChooseCategory = (id, e) => {
     this.setState({
       choosedCategoryId: id,
-      choosedCategoryName: e.target.innerHTML
+      choosedCategoryName: e.target.innerHTML,
+      isActiveAddSkill: false,
+      addSkillBtnText: 'Create New Skill'
     });
   }
 
@@ -124,7 +131,7 @@ class UserTable extends Component{
     return (
       <div className="user-table-wrapper">
         <CategoryNav skillsCategories={skillsCategories} handleChooseCategory={this.handleChooseCategory}/>
-        <button onClick={this.handleToggleAddSkillContainer}>{this.state.addSkillBtnText}</button>
+        <button className='user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>{this.state.addSkillBtnText}</button>
         {this.state.isActiveAddSkill ?
           <AddSkillContainer 
             choosedCategoryId={choosedCategoryId}

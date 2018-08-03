@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
+
 import User from './User/User';
 import './MatchedUsers.css';
 
-export class MatchedUsers extends Component {
+class MatchedUsers extends Component {
   
   render() {
     const { matchedUsers, selectedUser } = this.props;
@@ -12,19 +15,23 @@ export class MatchedUsers extends Component {
       return null 
     }
 
+
+    
     return (
       <div className='matched-users'>
         {
-          matchedUsers.map((user, idx) => {
-            if( selectedUser && user.name === selectedUser.name){
-              return null
-            } else return (
-              <User key={idx} user={user}/>
-            )
-          })
+          matchedUsers.map((user, idx) => <User key={idx} user={user} isSelected={selectedUser ? user.name === selectedUser.name : false}/>)
         }
       </div>
     )
 
   }
 }
+
+function mapStateToProps(state) {
+  return {
+    selectedUser: state.getUserById
+  }
+}
+
+export default connect(mapStateToProps)(MatchedUsers)
