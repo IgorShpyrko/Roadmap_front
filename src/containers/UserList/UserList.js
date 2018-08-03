@@ -23,16 +23,19 @@ class UserList extends Component {
   }
     
   render() {
-    const { listUsers } = this.props
+    const { listUsers, userById, isAdmin } = this.props
+    if(!isAdmin) {
+      return null
+    }
     return (
       <Dropdown 
-        className='user-dropdown'
-        value={this.state.user}
-        options={listUsers} 
-        onChange={this.onUserChange} 
-        style={{width:'250px'}} 
-        placeholder="Select User" 
-        optionLabel="name"
+      className='user-dropdown'
+      value={this.state.user}
+      options={listUsers} 
+      onChange={this.onUserChange} 
+      style={{width:'250px'}} 
+      placeholder={userById ? userById.name : 'Select User'} 
+      optionLabel='name'
       />
     );
   }
@@ -40,7 +43,8 @@ class UserList extends Component {
 
 function mapStateToProps(state) {
   return { 
-    userById: state.getUserById
+    userById: state.getUserById,
+    isAdmin: state.auth.checkAdmin
   };
 };
 

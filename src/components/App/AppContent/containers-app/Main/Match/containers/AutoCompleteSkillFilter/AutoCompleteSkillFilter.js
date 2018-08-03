@@ -5,6 +5,8 @@ import 'primereact/resources/themes/omega/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
 
+import './AutoCompleteSkillFilter.css';
+
 export class AutoCompleteSkillFilter extends Component {
 
   constructor(props) {
@@ -59,7 +61,7 @@ export class AutoCompleteSkillFilter extends Component {
             this.props.changeStateFilter(e.value);
           }} />
         </span>
-        <button onClick={this.clearFilter}>Clear filters</button>
+        <button className='autocomplete-skill-filter-clear-btn' onClick={this.clearFilter}>Clear filters</button>
       </div>
     )
   }

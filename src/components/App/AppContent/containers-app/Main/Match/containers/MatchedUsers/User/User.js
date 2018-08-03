@@ -38,10 +38,10 @@ export default class User extends Component {
     return (
       <div className={wrapperClassName}>
         <div className='matched-user-name'>
-          {user.name}
+          <h4>{user.name}</h4>
         </div>
         <div>
-          Mark sum: {this.state.markSum}
+          <h4>Mark sum: {this.state.markSum}</h4>
         </div>
         <div className='matched-user-skills'>
           {user.userSkills.map((skill, idx) => {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux';
+
 import Header from './containers-app/Header/Header.jsx';
 import Menu from './containers-app/Menu/Menu.jsx';
 import Main from './containers-app/Main/Main.jsx';
@@ -25,12 +27,15 @@ class AppComponent extends Component {
   }
 
   render() {
+
+    const { user, isAdmin } = this.props;
+    
     return (
       <div className='container'>
         <Header handleToggle={this.handleToggle}/>
         <div className='main-container'>
-          <Menu navClassName={this.state.navClassName} handleToggle={this.handleToggle} />
-          <Main mainClassName={this.state.mainClassName}/>
+          <Menu navClassName={this.state.navClassName} handleToggle={this.handleToggle} user={user} isAdmin={isAdmin}/>
+          <Main mainClassName={this.state.mainClassName} />
         </div>
         <Footer />
       </div>
@@ -38,4 +43,11 @@ class AppComponent extends Component {
   }
 }
 
-export default AppComponent
+function mapStateToProps(state) {
+  return {
+    user: state.auth.user,
+    isAdmin: state.auth.checkAdmin
+  }
+}
+
+export default connect(mapStateToProps)(AppComponent)

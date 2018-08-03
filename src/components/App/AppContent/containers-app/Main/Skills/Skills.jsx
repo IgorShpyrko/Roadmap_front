@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getUserList } from '../../../../../../actions/getUserList'; 
-import { getUserById } from '../../../../../../actions/getUserById'; 
-import UserTable from './components/UserTable/UserTable';
+import { getUserById } from '../../../../../../actions/getUserById';  
+import UserTable from './UserTable/UserTable';
 import UserList from '../../../../../../containers/UserList/UserList';
 
 import './Skills.css';
@@ -11,19 +11,20 @@ class Skills extends Component {
 
   componentWillMount() {
     this.props.getUserList();
-    this.props.getUserById(null);
+    this.props.getUserById(this.props.user.id);
   };
-
+  
   render() {
 
-    const { listUsers, userById } = this.props;
+    const { listUsers, userById, isAdmin, user } = this.props;
+
     return (
       <div className='skills' >
         <h3 className='skills-title'>Skills</h3>
-        <UserList listUsers={listUsers} />   
+        <UserList listUsers={listUsers} /> 
         { 
           userById ? 
-          <UserTable user={userById} />:
+          <UserTable user={userById} /> :
           null 
         }
       </div>
@@ -32,9 +33,12 @@ class Skills extends Component {
 }
 
 function mapStateToProps(state) {
+  // console.log(state)
   return { 
     listUsers: state.getUserList,
-    userById: state.getUserById
+    userById: state.getUserById,
+    isAdmin: state.auth.checkAdmin,
+    user: state.auth.user
   };
 };
 
@@ -43,8 +47,8 @@ function mapDispatchToProps(dispatch) {
     getUserList: function () {
       dispatch(getUserList());
     },
-    getUserById: function () {
-      dispatch(getUserById());
+    getUserById: function (id) {
+      dispatch(getUserById(id));
     }
   };
 };

@@ -77,7 +77,8 @@ class Login extends Component {
 function mapStateToProps(state) {
   return { 
     token: state.auth.token,
-    status: state.auth.status
+    status: state.auth.status,
+    user: state.auth.user
   };
 }
 function mapDispathToProps(dispatch) {

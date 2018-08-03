@@ -18,20 +18,20 @@ class App extends Component {
   }
 
   render() {
-    const { checkAdmin } = this.props
+    const { checkAdmin, role } = this.props
 
     return (
     <BrowserRouter>
         <Switch>
           <Route exact path='/login' 
-          render = {(props) => (!checkAdmin ? <Login {...props}/> : 
+            render = {(props) => (!checkAdmin ? <Login {...props}/> : 
               ( <Redirect to='/' /> )
             )} 
           />
           <Route path='/register' component={Register}/>
           <Route path='/' render = {(props) => (checkAdmin ? <AppContent {...props}/> :
-            ( <Redirect to='/login' /> ) 
-            )} 
+            ( role === 0 ? <AppContent {...props}/> : <Redirect to='/login' /> ) 
+          )} 
           />
         </Switch>
       </BrowserRouter>
@@ -43,6 +43,7 @@ function mapStateToProps(state) {
   return { 
     token: state.auth.token,
     checkAdmin: state.auth.checkAdmin,
+    role: state.auth.user ? state.auth.user.role : ''
   };
 }
 function mapDispathToProps(dispatch) {

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSkillsCategories } from '../../../../../../../../actions/getSkillsCategories' ;
-import { editSkillsMarkAction } from '../../../../../../../../actions/skill' ;
-import { editSkillsDispositionAction } from '../../../../../../../../actions/skill' ;
+import { getSkillsCategories } from '../../../../../../../actions/getSkillsCategories';
+import { editSkillsMarkAction } from '../../../../../../../actions/skill' ;
+import { editSkillsDispositionAction } from '../../../../../../../actions/skill' ;
 
 import CategoryNav from './CategoryNav/CategoryNav';
 import TitleCell from './TitleCell/TitleCell';
@@ -25,12 +25,7 @@ class UserTable extends Component{
   }
 
   handleToggleAddSkillContainer = () => {
-    if(this.state.isActiveAddSkill){
-      console.log('is active')
-    }
     this.setState((prevState) => {
-      console.log(prevState);
-      console.log(this.state)
       return {
         isActiveAddSkill: !prevState.isActiveAddSkill,
         addSkillBtnText: prevState.addSkillBtnText === 'Create New Skill' ? 'Close' : 'Create New Skill'
@@ -86,7 +81,7 @@ class UserTable extends Component{
 
   render() {
 
-    const { skillsCategories, user } = this.props;
+    const { skillsCategories, user, isAdmin } = this.props;
     const { choosedCategoryName, choosedCategoryId } = this.state;
 
     let skills= [
@@ -131,14 +126,20 @@ class UserTable extends Component{
     return (
       <div className="user-table-wrapper">
         <CategoryNav skillsCategories={skillsCategories} handleChooseCategory={this.handleChooseCategory}/>
-        <button className='user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>{this.state.addSkillBtnText}</button>
+        {isAdmin ? 
+          <button className='user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>
+            {this.state.addSkillBtnText}
+          </button> :
+          null
+        }
         {this.state.isActiveAddSkill ?
           <AddSkillContainer 
             choosedCategoryId={choosedCategoryId}
             choosedCategoryName={choosedCategoryName}
             user={user}/> :
           null
-      }
+        }
+
         <table className='user-table'>
           <tbody>
             <tr>
@@ -156,7 +157,8 @@ class UserTable extends Component{
    
 function mapStateToProps(state) {
     return { 
-      skillsCategories: state.getSkillsCategories
+      skillsCategories: state.getSkillsCategories,
+      isAdmin: state.auth.checkAdmin
     };
 }
 

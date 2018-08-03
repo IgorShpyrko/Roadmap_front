@@ -1,0 +1,23 @@
+.autocomplete-skill-filter-clear-btn {
+  margin: 20px 20px 20px 10px;
+  height: 30px;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  background-color: rgb(150, 12, 241);
+  box-shadow: 0 0 5px 5px rgb(150, 12, 241);
+  transition: all 0.3s ease-in-out;
+}
+
+.autocomplete-skill-filter-clear-btn:hover {
+  cursor: pointer;
+  background-color: rgb(109, 51, 148);
+  box-shadow: 0 0 5px 5px rgb(109, 51, 148);
+  transition: all 0.3s ease-in;
+}
+
+.autocomplete-skill-filter-clear-btn:active {
+  background-color: rgb(176, 83, 238);
+  box-shadow: 0 0 5px 5px rgb(176, 83, 238);
+  transition: all 20ms ease-in-out;
+}
