@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getSkillsCategories } from '../../../../../../../actions/getSkillsCategories';
-import { editSkillsMarkAction } from '../../../../../../../actions/skill' ;
-import { editSkillsDispositionAction } from '../../../../../../../actions/skill' ;
+import { getSkillsCategories } from 'actions/getSkillsCategories';
+import { editSkillsMarkAction } from 'actions/skill' ;
+import { editSkillsDispositionAction } from 'actions/skill' ;
 
 import CategoryNav from './CategoryNav/CategoryNav';
 import TitleCell from './TitleCell/TitleCell';

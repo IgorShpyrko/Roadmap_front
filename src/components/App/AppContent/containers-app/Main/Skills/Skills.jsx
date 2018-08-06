@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getUserList } from '../../../../../../actions/getUserList'; 
-import { getUserById } from '../../../../../../actions/getUserById';  
+import { getUserList } from 'actions/getUserList'; 
+import { getUserById } from 'actions/getUserById';  
 import UserTable from './UserTable/UserTable';
-import UserList from '../../../../../../containers/UserList/UserList';
+import UserList from 'containers/UserList/UserList';
 
 import './Skills.css';
 

@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
-import Login from '../Login/Login';
-import Register from '../Register/Register';
-import AppContent from '../App/AppContent/AppContent';
+import Login from 'components/Login/Login';
+import Register from 'components/Register/Register';
+import AppContent from 'components/App/AppContent/AppContent';
 
-import { checkAuthAction, getCheckAdminAction } from '../../actions/auth';
+import { checkAuthAction, getCheckAdminAction } from 'actions/auth';
 
 class App extends Component {
   componentDidMount(){

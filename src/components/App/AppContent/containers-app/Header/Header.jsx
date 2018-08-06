@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 import Avatar from './Avatar/Avatar'
-import logo from '../../../../../img/logo.png';
-import menuIcon from '../../../../../img/menu.svg';
+import logo from 'img/logo.png';
+import menuIcon from 'img/menu.svg';
 
 
 export default class Header extends Component {

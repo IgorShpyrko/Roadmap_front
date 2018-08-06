@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import { AutoCompleteSkillFilter } from './containers/AutoCompleteSkillFilter/AutoCompleteSkillFilter';
 import MatchedUsers from './containers/MatchedUsers/MatchedUsers';
-import { getAllSkillsAction, getSkillList } from '../../../../../../actions/compare';
-import { getMatchedUsers } from '../../../../../../actions/getMatchedUsers';
-import { getUserList } from '../../../../../../actions/getUserList';
-import UserList from '../../../../../../containers/UserList/UserList';
+import { getAllSkillsAction, getSkillList } from 'actions/compare';
+import { getMatchedUsers } from 'actions/getMatchedUsers';
+import { getUserList } from 'actions/getUserList';
+import UserList from 'containers/UserList/UserList';
 import SelectedUserSkills from './containers/SelectedUserSkills/SelectedUserSkills';
 
 import './Match.css';

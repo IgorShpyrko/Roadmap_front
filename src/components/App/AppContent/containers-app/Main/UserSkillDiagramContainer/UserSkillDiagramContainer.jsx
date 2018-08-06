@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import { getUserList } from '../../../../../../actions/getUserList';
-import { getSkillsCategories } from '../../../../../../actions/getSkillsCategories';
-import { getUserById } from '../../../../../../actions/getUserById';
-import UserList from '../../../../../../containers/UserList/UserList';
+import { getUserList } from 'actions/getUserList';
+import { getSkillsCategories } from 'actions/getSkillsCategories';
+import { getUserById } from 'actions/getUserById';
+import UserList from 'containers/UserList/UserList';
 
 import UserSkillDiagram from './UserSkillDiagram/UserSkillDiagram';
 

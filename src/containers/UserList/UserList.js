@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Dropdown } from 'primereact/components/dropdown/Dropdown';
 
 
-import { getUserById } from '../../actions/getUserById';
+import { getUserById } from 'actions/getUserById';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
 
