@@ -4,7 +4,8 @@ import { getSkillsCategories } from 'actions/getSkillsCategories';
 import { editSkillsMarkAction } from 'actions/skill' ;
 import { editSkillsDispositionAction } from 'actions/skill' ;
 
-import CategoryNav from './CategoryNav/CategoryNav';
+import SkillNavBar from 'containers/SkillNavBar/SkillNavBar';
+
 import TitleCell from './TitleCell/TitleCell';
 import MarkCell from './MarkCel/MarkCell';
 import DispositionCell from './DispositionCell/DispositionCell';
@@ -125,7 +126,10 @@ class UserTable extends Component{
 
     return (
       <div className="user-table-wrapper">
-        <CategoryNav skillsCategories={skillsCategories} handleChooseCategory={this.handleChooseCategory}/>
+        {<SkillNavBar 
+            categories={skillsCategories} 
+            choosedCategoryId={choosedCategoryId}
+            handleChooseCategory={this.handleChooseCategory}/>}
         {isAdmin ? 
           <button className='user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>
             {this.state.addSkillBtnText}

@@ -5,8 +5,11 @@ import { getUserList } from 'actions/getUserList';
 import { getSkillsCategories } from 'actions/getSkillsCategories';
 import { getUserById } from 'actions/getUserById';
 import UserList from 'containers/UserList/UserList';
+import SkillNavBar from 'containers/SkillNavBar/SkillNavBar';
 
 import UserSkillDiagram from './UserSkillDiagram/UserSkillDiagram';
+
+import './UserSkillDiagramContainer.css';
 
 
 class UserSkillDiagramContainer extends Component {
@@ -56,26 +59,15 @@ class UserSkillDiagramContainer extends Component {
         <h3>User Diagram</h3>
         <UserList listUsers={listUsers} />
         {skills !== null ? 
-          <div className='user-table-nav'>
-            {skillsCategories.map((category) => {
-              return (
-                <button
-                  className='category-btn'
-                  key={category.id} 
-                  onClick={(e) => {this.handleChooseCategory(category.id, e)}}
-                  style={{
-                    margin: '5px'
-                  }}>
-                    {category.title}
-                </button>
-              )
-            })}
-          </div>: 
+          <SkillNavBar 
+            categories={skillsCategories} 
+            choosedCategoryId={choosedCategoryId}
+            handleChooseCategory={this.handleChooseCategory}/>: 
           null
         }
-        { choosedCategoryId !== null ? 
-          <UserSkillDiagram skills={skills} choosedCategoryId={choosedCategoryId} /> : 
-          null
+        { choosedCategoryId === null ? 
+          null :
+          <UserSkillDiagram skills={skills} choosedCategoryId={choosedCategoryId} />
         } 
       </React.Fragment>
     );

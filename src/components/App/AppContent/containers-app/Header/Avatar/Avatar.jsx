@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 
-import './Avatar.css'
+import './Avatar.css';
+
+import img from 'img/img.jpg';
 
 class Avatar extends Component {
   state = {  }
@@ -13,11 +15,12 @@ class Avatar extends Component {
   }
 
   render() {
+    const image = this.props.user && this.props.user.photo ? this.props.user.photo : img
 
     return (
       <div className='avatar-wrapper'>
         <div className='avatar'>
-        Avatar
+          <img className='avatar-img' src={image} alt='avatar'/>
         </div>
         <div className='log-out' onClick={this.handleLogOut}>
           Log Out
@@ -29,7 +32,7 @@ class Avatar extends Component {
 
 function mapStateToProps(state){
   return {
-    ...state
+    user: state.auth.user
   }
 }
 

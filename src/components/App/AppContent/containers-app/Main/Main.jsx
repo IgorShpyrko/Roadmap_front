@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Welcome from '../Welcome/Welcome';
 import DashBoard from './DashBoard/Dashboard';
@@ -15,11 +15,13 @@ export default class Main extends Component {
   render() {
     return (
       <div className={'main ' + this.props.mainClassName}>
-        <Route exact path='/' component={Welcome}/>
-        <Route path='/dashboard' component={DashBoard}/>
-        <Route path='/diagram' component={UserSkillDiagramContainer}/>
-        <Route path='/skills' component={Skills}/>
-        <Route path='/match' component={Match}/>
+        <Switch>
+          <Route exact path='/' component={Welcome}/>
+          <Route path='/dashboard' component={DashBoard}/>
+          <Route path='/diagram' component={UserSkillDiagramContainer}/>
+          <Route path='/skills' component={Skills}/>
+          <Route path='/match' component={Match}/>
+        </Switch>
       </div>
     );
   }

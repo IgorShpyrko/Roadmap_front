@@ -21,7 +21,7 @@ class App extends Component {
     const { checkAdmin, role } = this.props
 
     return (
-    <BrowserRouter>
+      <BrowserRouter>
         <Switch>
           <Route exact path='/login' 
             render = {(props) => (!checkAdmin ? <Login {...props}/> : 
