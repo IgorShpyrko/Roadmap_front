@@ -11,7 +11,9 @@ class Skills extends Component {
 
   componentWillMount() {
     this.props.getUserList();
-    this.props.getUserById(this.props.user.id);
+    if(this.props.user){
+      this.props.getUserById(this.props.user.id);
+    }
   };
   
   render() {

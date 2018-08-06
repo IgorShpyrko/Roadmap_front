@@ -23,9 +23,9 @@ class UserList extends Component {
   }
     
   render() {
-    const { listUsers, userById, isAdmin } = this.props
+    const { listUsers, userById, isAdmin, user } = this.props
     if(!isAdmin) {
-      return null
+      return (<h3>{user.name}</h3>)
     }
     return (
       <Dropdown 
@@ -44,7 +44,8 @@ class UserList extends Component {
 function mapStateToProps(state) {
   return { 
     userById: state.getUserById,
-    isAdmin: state.auth.checkAdmin
+    isAdmin: state.auth.checkAdmin,
+    user: state.auth.user
   };
 };
 

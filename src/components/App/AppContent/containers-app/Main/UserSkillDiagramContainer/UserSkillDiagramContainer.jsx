@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import { getUserList } from '../../../../../../actions/getUserList';
 import { getSkillsCategories } from '../../../../../../actions/getSkillsCategories';
+import { getUserById } from '../../../../../../actions/getUserById';
 import UserList from '../../../../../../containers/UserList/UserList';
 
 import UserSkillDiagram from './UserSkillDiagram/UserSkillDiagram';
@@ -10,7 +11,6 @@ import UserSkillDiagram from './UserSkillDiagram/UserSkillDiagram';
 
 class UserSkillDiagramContainer extends Component {
   state = { 
-    data: [],
     skills: null,
     choosedCategoryId: null
    }
@@ -22,6 +22,7 @@ class UserSkillDiagramContainer extends Component {
   }
 
   static getDerivedStateFromProps(props, state){
+
     if(props.listUsers === null){
       props.getUserList();
     };
@@ -29,6 +30,10 @@ class UserSkillDiagramContainer extends Component {
     if(props.skillsCategories.length === 0){
       props.getSkillsCategories();
     };
+
+    if(!props.userById && props.user && props.user.role === 0){
+      props.getUserById(props.user.id)
+    }
     
     if(props.userById !== null){
       return {
@@ -81,7 +86,8 @@ function mapStateToProps(state) {
   return { 
     listUsers: state.getUserList,
     userById: state.getUserById,
-    skillsCategories: state.getSkillsCategories
+    skillsCategories: state.getSkillsCategories,
+    user: state.auth.user
   };
 };
 
@@ -92,6 +98,9 @@ function mapDispatchToProps(dispatch) {
     },
     getUserList: function () {
       dispatch(getUserList());
+    },
+    getUserById: function (id) {
+      dispatch(getUserById(id));
     }
   };
 };
