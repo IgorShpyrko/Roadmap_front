@@ -8,7 +8,7 @@ import LogTable from './LogTable/LogTable';
 import UserList from 'containers/UserList/UserList';
 
 
-class DashBoard extends Component {
+class LogBoard extends Component {
   state = {  }
 
   componentDidMount() {
@@ -70,4 +70,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DashBoard)
+export default connect(mapStateToProps, mapDispatchToProps)(LogBoard)

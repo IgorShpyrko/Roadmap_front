@@ -14,8 +14,8 @@ export default class Menu extends Component {
         <h4 className='nav-header' onClick={this.props.handleToggle}>Menu</h4>
         <ul className='nav-list'>
           <li className='nav-element'>
-            <NavLink activeClassName='active' className="link_login" to='/dashboard'>
-              Dashboard
+            <NavLink activeClassName='active' className="link_login" to='/logboard'>
+              Log Board
             </NavLink>
           </li> 
           <li className='nav-element'>
