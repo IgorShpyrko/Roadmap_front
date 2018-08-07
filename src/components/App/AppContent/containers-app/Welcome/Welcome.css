@@ -1,0 +1,23 @@
+.welcome-wrapper {
+}
+
+.welcome-container {
+  text-align: center;
+  margin: 0 auto;
+  width: 40vw;
+  min-width: 30vw;
+}
+
+.welcome-header {
+  font-size: 3em;
+  background: linear-gradient(to right, rgb(57, 4, 126) , rgb(248, 23, 237));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome-paragraph {
+  font-size: 2em;
+  background: linear-gradient(to right, rgb(57, 4, 126) , rgb(248, 23, 237));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

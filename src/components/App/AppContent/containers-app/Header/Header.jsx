@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 
@@ -15,10 +15,11 @@ export default class Header extends Component {
     return (
       <div className='header'>
         <div style={{display:'flex'}}>
-          <Link to='/' >
-            <img src={logo} alt="" width='40px' />
+          <NavLink to='/' className='logo-wrapper' >
+            <img src={logo} alt="" width='40px'/>
+            &nbsp;
             <span style={{marginBottom:'10px'}}>SmartIT</span>
-          </Link>
+          </NavLink>
           <div onClick={this.props.handleToggle}>
             <img className='menu-img'  src={menuIcon} alt='menuIcon' />
           </div>
