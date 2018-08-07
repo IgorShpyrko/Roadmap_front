@@ -10,6 +10,7 @@ import menuIcon from 'img/menu.svg';
 
 export default class Header extends Component {
   state = {  }
+
   render() {
     return (
       <div className='header'>
@@ -22,7 +23,6 @@ export default class Header extends Component {
             <img className='menu-img'  src={menuIcon} alt='menuIcon' />
           </div>
         </div>
-        <span>Title</span>
         <Avatar />
       </div>
     );

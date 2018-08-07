@@ -1,0 +1,30 @@
+.log-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+.log-table-row {
+  border: 1px solid black;
+  transition: all 0.3s ease-in-out;
+}
+
+.log-table-row:hover {
+  background: rgba(173, 12, 160, 0.8);
+  transition: all 0.3s ease-in-out;
+}
+
+.log-table-name-cell {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.log-table-header {
+  padding: 5px;
+}
+
+.log-table-cell {
+  border: 1px solid black;
+  text-align: center;
+  padding: 5px;
+}

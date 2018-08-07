@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import './SkillNavBar.css';
+
 export default class SkillNavBar extends Component {
   state = {  }
   render() {

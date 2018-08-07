@@ -98,7 +98,8 @@ class UserTable extends Component{
       if(skill === null || skill.skill === null){
         return
       }
-      if(skill.skill.categoryId === choosedCategoryId){
+      // if is admin: 
+      if(isAdmin && skill.skill.categoryId === choosedCategoryId){
         skills.push (
           <tr key={skill.id}>
             <TitleCell 
@@ -119,6 +120,17 @@ class UserTable extends Component{
               skillComment={skill.comment}
               handleChangeSkillComment={this.handleChangeSkillComment}
             />
+          </tr>
+        )
+      }
+      // if user (not admin) :
+      if(!isAdmin && skill.skill.categoryId === choosedCategoryId){
+        skills.push (
+          <tr key={skill.id}>
+            <td>{skill.skill.title}</td>
+            <td>{skill.mark}</td>
+            <td>{skill.disposition}</td>
+            <td>{skill.comment ? skill.comment : 'no comments'}</td>
           </tr>
         )
       }

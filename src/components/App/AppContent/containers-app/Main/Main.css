@@ -5,13 +5,5 @@
 .main {
   display: block;
   padding: 10px 10px 7vh;
+  width: 100%;
 }
-
-.main-collapsed {
-  /* margin-left: 300px; */
-}
-
-.main-full {
-  /* margin-left: 0; */
-}
-

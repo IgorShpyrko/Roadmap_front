@@ -100,7 +100,6 @@ class SimpleTreemap extends Component{
    }
 
 	render () {
-    console.log(this.props)
     let treemapWidth;
     let treemapFontSize;
 

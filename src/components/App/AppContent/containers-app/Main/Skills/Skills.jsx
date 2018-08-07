@@ -35,7 +35,6 @@ class Skills extends Component {
 }
 
 function mapStateToProps(state) {
-  // console.log(state)
   return { 
     listUsers: state.getUserList,
     userById: state.getUserById,
