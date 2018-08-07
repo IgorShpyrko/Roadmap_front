@@ -13,6 +13,13 @@
   background: linear-gradient(to right, rgb(57, 4, 126) , rgb(248, 23, 237));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }
 
 .welcome-paragraph {
@@ -20,4 +27,11 @@
   background: linear-gradient(to right, rgb(57, 4, 126) , rgb(248, 23, 237));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
 }

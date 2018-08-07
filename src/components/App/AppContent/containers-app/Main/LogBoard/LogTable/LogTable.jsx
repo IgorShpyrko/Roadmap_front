@@ -8,14 +8,14 @@ export default class LogTable extends Component {
   formatDate = (date) => {
     let newDate = new Date(Date.parse(date.toString()));
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    return newDate.toLocaleDateString('en-US', options)
+    return newDate.toLocaleDateString('ru', options)
   }
 
   compare = (a, b) => {
     if (a.updatedAt < b.updatedAt) return 1;
     if (a.updatedAt > b.updatedAt) return -1;
   }
-  
+
   render() {
     const { log } = this.props;
 

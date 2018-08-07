@@ -8,17 +8,34 @@ import UserList from 'containers/UserList/UserList';
 import './Skills.css';
 
 class Skills extends Component {
+  state = { }
 
-  componentWillMount() {
-    this.props.getUserList();
-    if(this.props.user){
-      this.props.getUserById(this.props.user.id);
+  static getDerivedStateFromProps(props, state) {
+    
+    if(!props.listUsers){
+      props.getUserList();
     }
-  };
+    if(!props.userById){
+      if(props.user){
+        props.getUserById(props.user.id)
+      }
+    }
+    return {
+      ...state
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if(prevProps.changedSkills === this.props.changedSkills){
+      return
+    } else (
+      this.props.getUserById(this.props.changedSkills.id)
+    )
+  }
   
   render() {
 
-    const { listUsers, userById, isAdmin, user } = this.props;
+    const { listUsers, userById } = this.props;
 
     return (
       <div className='skills' >
@@ -39,7 +56,8 @@ function mapStateToProps(state) {
     listUsers: state.getUserList,
     userById: state.getUserById,
     isAdmin: state.auth.checkAdmin,
-    user: state.auth.user
+    user: state.auth.user,
+    changedSkills: state.skill.changedSkills
   };
 };
 

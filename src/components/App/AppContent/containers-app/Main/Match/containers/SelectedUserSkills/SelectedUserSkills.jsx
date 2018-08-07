@@ -13,14 +13,6 @@ export default class SelectedUserSkills extends Component {
       return null
     }
 
-    const { filtersId } = this.props;
-    const userSkills = this.props.user.userSkills;
-
-    // const filteredSkills = 
-
-    // console.log(filtersId);
-    // console.log(userSkills);
-
     return (
       <div>
         

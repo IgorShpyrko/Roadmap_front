@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { auth } from './auth';
+import { skill } from './skill';
 import { getSkillsList } from './getSkillsList';
 import { getUserById } from './getUserById';
 import { getUserList } from './getUserList';
@@ -9,6 +10,7 @@ import { getUserLog } from './getUserLog';
 
 export const rootReducer = combineReducers({
   auth,
+  skill,
   getSkillsList,
   getUserById,
   getUserList,

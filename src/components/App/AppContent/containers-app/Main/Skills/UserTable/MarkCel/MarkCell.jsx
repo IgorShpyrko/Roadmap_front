@@ -54,7 +54,7 @@ export default class MarkCell extends Component {
       this.onApply()
     }
   }
-
+  
   render() {
     const { skillMark } = this.props
     return (

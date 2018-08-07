@@ -25,7 +25,7 @@ class UserList extends Component {
   render() {
     const { listUsers, userById, isAdmin, user } = this.props
     if(!isAdmin) {
-      return (<h3>{user.name}</h3>)
+      return null
     }
     return (
       <Dropdown 

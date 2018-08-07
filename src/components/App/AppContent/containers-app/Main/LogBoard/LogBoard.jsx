@@ -20,12 +20,10 @@ class LogBoard extends Component {
     }
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    if(nextProps.userById !== this.props.userById){
+  shouldComponentUpdate(nextProps){
       if(nextProps.userById !== null){
         this.props.getUserLog(nextProps.userById.id)
       }
-    }
     return true
   }
 

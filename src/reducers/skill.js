@@ -24,7 +24,7 @@ export function skill(state = defaultState, action) {
         case 'EDIT_USER_SKILL':
             return {...state, editSkill: action.payload.editSkill, mark:action.payload.mark };
         case 'GET_CHANGED_SKILLS':
-            return {...state, changedSkills: JSON.parse(action.payload)}
+            return {...state, changedSkills: action.payload}
         default:
             return state;
     }
