@@ -4,7 +4,7 @@ import { Treemap } from 'recharts';
 
 import './UserSkillDiagram.css';
 
-const COLORS = ['#8889DD', '#9597E4', '#8DC77B', '#A5D297', '#E2CF45', '#F8C12D'];
+const COLORS = ['rgb(200, 200, 200)', 'rgb(166, 166, 166)', 'rgb(133, 133, 133)', 'rgb(100, 100, 100)', 'rgb(66, 66, 66)', 'rgb(33, 33, 33)'];
 
 class CustomizedContent extends Component{
   
@@ -19,7 +19,7 @@ class CustomizedContent extends Component{
           width={width}
           height={height}
           style={{
-            fill: depth < 2 ? colors[Math.floor(index / root.children.length * 6)] : 'none',
+            fill: mark < 2 ? colors[0] : mark < 4 ? colors[1] : mark < 6 ? colors[2] : mark < 8 ? colors [3] : mark < 10 ? colors[4] : colors[5],
             stroke: '#fff',
             strokeWidth: 2 / (depth + 1e-10),
             strokeOpacity: 1 / (depth + 1e-10),
@@ -131,7 +131,7 @@ class SimpleTreemap extends Component{
       <Treemap
         className='treemap'
         width={treemapWidth}
-        height={675}
+        height={treemapWidth * 9 / 16}
         data={filteredByCategory}
         dataKey="mark"
         ratio={16/9}
