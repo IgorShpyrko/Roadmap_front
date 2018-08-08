@@ -75,6 +75,7 @@ class AddSkillContainer extends Component {
             {warning ? null :
               <span className='clearable-input'>
               <input 
+                className='create-new-skill-input'
                 name='create-new-skill-name' 
                 type='text' 
                 value={this.state.inputValue} 

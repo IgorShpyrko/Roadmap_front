@@ -7,5 +7,5 @@
 }
 
 .matched-user.selected-user {
-  background: #F00;
+  background: rgba(0, 0, 240, 0.5);
 }

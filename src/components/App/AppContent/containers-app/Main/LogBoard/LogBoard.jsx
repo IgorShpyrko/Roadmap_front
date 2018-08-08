@@ -12,7 +12,7 @@ class LogBoard extends Component {
   state = {  }
 
   componentDidMount() {
-    if(this.props.user){
+    if(!this.props.isAdmin && this.props.user){
       this.props.getUserLog(this.props.user.id)
     }
     if(this.props.isAdmin){
@@ -37,19 +37,13 @@ class LogBoard extends Component {
   render() {
 
   const { log, isAdmin, listUsers, userById } = this.props;
-  console.log(log);
-  console.log(this.props)
 
     return (
       <React.Fragment>
         <h3>DashBoard</h3>
 
-        {/* if user */}
-        {!isAdmin && (log ? <LogTable log={log} /> : <h4>ploading... please wait</h4>)}
-
-        {/* if admin */}
         {isAdmin && (listUsers ? <UserList listUsers={listUsers}/> : <h4>ploading... please wait</h4>)}
-        {isAdmin && (userById ? <LogTable log={log} /> : null)}
+        {(log !== null ? <LogTable log={log} /> : null )}
 
       </React.Fragment>
     );
