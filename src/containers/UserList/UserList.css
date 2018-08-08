@@ -2,3 +2,11 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
+.ui-dropdown-item:active {
+  background: rgba(0, 0, 240, 1) !important;
+}
+
+.ui-dropdown-item:hover {
+  background: rgba(0, 0, 240, 0.5) !important;
+}

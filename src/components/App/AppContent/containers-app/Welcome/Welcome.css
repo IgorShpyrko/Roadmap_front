@@ -10,28 +10,16 @@
 
 .welcome-header {
   font-size: 3em;
-  background: linear-gradient(to right, rgb(57, 4, 126) , rgb(248, 23, 237));
+  background: linear-gradient(to right, rgba(0, 0, 240, 0.7) , rgba(0, 0, 240, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-  -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  user-select: none;
 }
 
 .welcome-paragraph {
   font-size: 2em;
-  background: linear-gradient(to right, rgb(57, 4, 126) , rgb(248, 23, 237));
+  background: linear-gradient(to right, rgba(0, 0, 240, 0.7) , rgba(0, 0, 240, 1));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  
-  -webkit-touch-callout: none;
-    -webkit-user-select: none;
-     -khtml-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+  user-select: none;
 }

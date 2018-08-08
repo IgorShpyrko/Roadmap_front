@@ -15,7 +15,7 @@ export default class Header extends Component {
     return (
       <div className='header'>
         <div style={{display:'flex'}}>
-          <NavLink to='/' className='logo-wrapper' >
+          <NavLink to='/' className='logo-link' >
             <img src={logo} alt="" width='40px'/>
             &nbsp;
             <span style={{marginBottom:'10px'}}>SmartIT</span>

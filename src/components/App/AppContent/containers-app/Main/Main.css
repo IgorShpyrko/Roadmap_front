@@ -1,9 +1,16 @@
 .main-container {
-  background: rgb(193, 156, 211);
+  background: rgb(231, 231, 231);
 }
 
 .main {
   display: block;
   padding: 10px 10px 7vh;
   width: 100%;
+  margin-left: 0;
+  transition: all 1s ease-in-out
+}
+
+.main-collapsed {
+  margin-left: 300px;
+  transition: all 1s ease-in-out
 }

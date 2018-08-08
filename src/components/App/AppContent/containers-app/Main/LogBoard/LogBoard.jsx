@@ -21,15 +21,24 @@ class LogBoard extends Component {
   }
 
   shouldComponentUpdate(nextProps){
-      if(nextProps.userById !== null){
+      if(nextProps.userById !== this.props.userById){
         this.props.getUserLog(nextProps.userById.id)
+        return true
       }
-    return true
+      if(nextProps.log !== this.props.log){
+        return true
+      }
+      if(nextProps.listUsers !== this.props.listUsers){
+        return true
+      }
+    return false
   }
 
   render() {
 
   const { log, isAdmin, listUsers, userById } = this.props;
+  console.log(log);
+  console.log(this.props)
 
     return (
       <React.Fragment>

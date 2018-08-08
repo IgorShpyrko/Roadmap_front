@@ -36,7 +36,7 @@ class Login extends Component {
   render() {
     return (
       <div 
-        className='general' 
+        className='login-general' 
         style={{
           display: 'flex', 
           justifyContent: 'center', 
@@ -63,7 +63,7 @@ class Login extends Component {
             &nbsp;
             <Link 
               className='link_login' 
-              style={{ color: '#fff', backgroundColor: 'rgb(0, 188, 212)'}} 
+              style={{ color: '#fff', backgroundColor: 'rgba(0, 0, 240, 0.7)'}} 
               to='/register'>
                 Register
             </Link>
