@@ -7,7 +7,6 @@ import { getAllSkillsAction, getSkillList } from 'actions/compare';
 import { getMatchedUsers } from 'actions/getMatchedUsers';
 import { getUserList } from 'actions/getUserList';
 import UserList from 'containers/UserList/UserList';
-import SelectedUserSkills from './containers/SelectedUserSkills/SelectedUserSkills';
 
 import './Match.css';
 
