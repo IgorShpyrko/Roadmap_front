@@ -86,7 +86,12 @@ class SimpleTreemap extends Component{
     })
   }
 
-   prepareData = (skills) => {
+  sortFunction = (a, b) => {
+    if(a.mark > b.mark) return -1;
+    if(a.mark < b.mark) return 1;
+  }
+
+  prepareData = (skills) => {
     let filteredSkills = skills.filter(skill => skill.skill !== null);
     let preparedSkills = filteredSkills.map((skill, idx) => {
       return {
@@ -96,8 +101,9 @@ class SimpleTreemap extends Component{
         children: []
       }
     })
-    return preparedSkills
-   }
+    let sortedSkills = preparedSkills.sort(this.sortFunction)
+    return sortedSkills
+  }
 
 	render () {
     let treemapWidth;
