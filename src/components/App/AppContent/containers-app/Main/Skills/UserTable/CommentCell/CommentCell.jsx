@@ -52,7 +52,10 @@ export default class CommentCell extends Component {
     })
   }
 
-  handleClick = (e) => {
+  handleClick = () => {
+    if(!this.props.isAdmin){
+      return
+    }
     this.setState({
       editMode: true
     })

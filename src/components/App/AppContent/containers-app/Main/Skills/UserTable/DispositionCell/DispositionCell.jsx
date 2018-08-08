@@ -16,7 +16,6 @@ export default class DispositionCell extends Component {
       this.onAbort();
       return;
     }
-    console.log(e.relatedTarget)
     if(e.relatedTarget.className === 'disposition-cell-apply-btn'){
       this.onApply()
     }
@@ -57,16 +56,19 @@ export default class DispositionCell extends Component {
   }
 
   render() {
-    const { skillDisposition } = this.props
+
+    const { skillDisposition, isAdmin } = this.props;
+    const { currentDisposition, isOpenedRangeEditMode } = this.state;
+
     return (
-      this.state.isOpenedRangeEditMode ? 
+      isOpenedRangeEditMode ? 
 
       <td className='table-disposition' >
         <div className='table-disposition-container'>
           <span style={{width: '15px'}}>
             {
-              this.state.currentDisposition ? 
-              this.state.currentDisposition : 
+              currentDisposition ? 
+              currentDisposition : 
               skillDisposition
             }
           </span>
@@ -75,8 +77,8 @@ export default class DispositionCell extends Component {
             type="range" 
             name=""
             value={
-              this.state.currentDisposition ? 
-              this.state.currentDisposition : 
+              currentDisposition ? 
+              currentDisposition : 
               skillDisposition
             }
             min="1" 
@@ -96,6 +98,9 @@ export default class DispositionCell extends Component {
           className='table-disposition' 
           onClick={
             () => {
+              if(!isAdmin){
+                return
+              }
               this.setState({
                 isOpenedRangeEditMode: true
               })

@@ -56,16 +56,19 @@ export default class MarkCell extends Component {
   }
   
   render() {
-    const { skillMark } = this.props
+    
+    const { skillMark, isAdmin } = this.props;
+    const { currentMark, isOpenedRangeEditMode } = this.state;
+
     return (
-      this.state.isOpenedRangeEditMode ? 
+      isOpenedRangeEditMode ? 
 
       <td className='table-mark' >
         <div className='table-mark-container'>
           <span style={{width: '15px'}}>
           {
-            this.state.currentMark ? 
-            this.state.currentMark : 
+            currentMark ? 
+            currentMark : 
             skillMark}
           </span>
           <input 
@@ -73,8 +76,8 @@ export default class MarkCell extends Component {
             type="range" 
             name=""
             value={
-              this.state.currentMark ? 
-              this.state.currentMark : 
+              currentMark ? 
+              currentMark : 
               skillMark
             }
             min="1" 
@@ -94,6 +97,9 @@ export default class MarkCell extends Component {
           className='table-mark' 
           onClick={
             () => {
+              if(!isAdmin){
+                return
+              }
               this.setState({
                 isOpenedRangeEditMode: true
               })

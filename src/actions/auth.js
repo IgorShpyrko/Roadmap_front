@@ -17,8 +17,6 @@ export const getCheckAdminAction = () => dispatch => {
 export const loginAction = (email, password) => dispatch => {
   axios.post('http://localhost:3010/login', {email, password})
   .then(function (response) {
-    console.log(response.data)
-    console.log(jwt_decode(response.data))
     localStorage.setItem('token', response.data);
     localStorage.setItem('id', jwt_decode(response.data).id);
     dispatch({ type: 'LOGIN_SUCCESS', payload: {token: response.data, MyID: jwt_decode(response.data).id, user: jwt_decode(response.data)}});
@@ -35,7 +33,8 @@ export function checkAuthAction() {
     return { 
       type: 'CHECK_AUTH', 
       payload: {
-        token: token === null ? "" : token
+        token: token ? token : '',
+        user: token ? jwt_decode(token): null
       }
-    }  
+    }
 }

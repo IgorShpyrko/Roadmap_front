@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
-import jwt_decode from 'jwt-decode';
-
 import Login from 'components/Login/Login';
 import Register from 'components/Register/Register';
 import AppContent from 'components/App/AppContent/AppContent';
@@ -21,19 +19,19 @@ class App extends Component {
   }
 
   render() {
-    const { checkAdmin, role } = this.props;
-
+    const { checkAdmin, user} = this.props;
+    
     return (
       <BrowserRouter>
         <Switch>
           <Route exact path='/login' 
-            render = {(props) => (!checkAdmin ? <Login {...props}/> : 
+            render = {(props) => (!user ? <Login {...props}/> : 
               ( <Redirect to='/' /> )
             )} 
           />
           <Route path='/register' component={Register}/>
           <Route path='/' render = {(props) => (checkAdmin ? <AppContent {...props}/> :
-            ( role === 0 ? <AppContent {...props}/> : <Redirect to='/login' /> ) 
+            ( user ? <AppContent {...props}/> : <Redirect to='/login' /> ) 
           )} 
           />
         </Switch>
@@ -46,7 +44,7 @@ function mapStateToProps(state) {
   return { 
     token: state.auth.token,
     checkAdmin: state.auth.checkAdmin,
-    role: state.auth.user ? state.auth.user.role : ''
+    user: state.auth.user ? state.auth.user : null
   };
 }
 function mapDispathToProps(dispatch) {

@@ -47,7 +47,6 @@ class App extends Component{
         <h3>Find Pair</h3>
         <div className='compare-desk'>
           <UserList listUsers={listUsers} />
-          <SelectedUserSkills filtersId={this.state.filtersId} user={this.props.userById}/>
           <hr/>
           <AutoCompleteSkillFilter skillList={skillList} changeStateFilter={this.changeStateFilter}/>
           <hr/>
