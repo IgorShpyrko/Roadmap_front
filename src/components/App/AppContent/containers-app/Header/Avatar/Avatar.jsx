@@ -39,7 +39,6 @@ class Avatar extends Component {
   render() {
     const image = this.props.user && this.props.user.photo ? this.props.user.photo : img;
     const { isHoveredAvatar } = this.state;
-    const { user } = this.props;
 
     return (
       <div className='avatar-wrapper'>
@@ -57,7 +56,7 @@ class Avatar extends Component {
           null
         }
         <div className='log-out' onClick={this.handleLogOut}>
-          Log Out
+          <span>Log Out</span>
         </div>
       </div>
     );

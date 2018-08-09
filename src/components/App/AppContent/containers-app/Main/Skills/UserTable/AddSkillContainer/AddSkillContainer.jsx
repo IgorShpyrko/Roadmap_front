@@ -43,7 +43,7 @@ class AddSkillContainer extends Component {
     this.props.createNewSkill({
       title: inputValue,
       description: descriptionValue !== '' ? descriptionValue : 'no description',
-      categoryId: choosedCategoryId
+      category_id: choosedCategoryId
     })
 
     this.clearInputValue();
@@ -69,7 +69,6 @@ class AddSkillContainer extends Component {
       <div className='add-skill-container'>
         <h3>Add New Skill in '{choosedCategoryName}' category</h3>
         <div className='add-skill-wrapper'>
-          <span className='add-skill-input'><b>user:</b> {user.name}</span>
           <div className='add-skill-component'>
             <label htmlFor='create-new-skill-name'><b>Skill Name:</b></label>
             {warning ? null :

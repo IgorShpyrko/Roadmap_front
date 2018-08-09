@@ -9,7 +9,7 @@ const COLORS = ['rgb(200, 200, 200)', 'rgb(166, 166, 166)', 'rgb(133, 133, 133)'
 class CustomizedContent extends Component{
   
   render() {
-    const { root, depth, x, y, width, height, index, colors, title, mark, fontSize } = this.props;
+    const { depth, x, y, width, height, colors, title, mark, fontSize } = this.props;
 
     return (
       <g>

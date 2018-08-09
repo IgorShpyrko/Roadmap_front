@@ -43,7 +43,7 @@ class App extends Component{
 
     return(
       <React.Fragment>
-        <h3>Find Pair</h3>
+        <h3 className='container-title'>Find Pair</h3>
         <div className='compare-desk'>
           <UserList listUsers={listUsers} />
           <hr/>

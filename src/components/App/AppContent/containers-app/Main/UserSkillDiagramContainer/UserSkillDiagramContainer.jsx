@@ -56,7 +56,7 @@ class UserSkillDiagramContainer extends Component {
 
     return (
       <React.Fragment>
-        <h3>User Diagram</h3>
+        <h3 className='container-title'>User Diagram</h3>
         <UserList listUsers={listUsers} />
         {skills !== null ? 
           <SkillNavBar 

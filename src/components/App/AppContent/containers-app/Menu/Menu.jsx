@@ -11,7 +11,14 @@ export default class Menu extends Component {
     return (
       <React.Fragment>
       <div className={'nav-container ' + this.props.navClassName}>
-        <h4 className='nav-header' onClick={this.props.handleToggle}>Menu</h4>
+        <div className='nav-header-wrapper'>
+          <h4 className='nav-header'>Menu</h4>
+          <div className='nav-header-close-icon' onClick={this.props.handleToggle}>
+            <div className='nav-header-close-icon-div'></div>
+            <div className='nav-header-close-icon-div'></div>
+            <div className='nav-header-close-icon-div'></div>
+          </div>
+        </div>
         <ul className='nav-list'>
           <li className='nav-element'>
             <NavLink activeClassName='active' className='link_login' to='/logboard'>

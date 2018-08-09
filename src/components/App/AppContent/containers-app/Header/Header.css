@@ -18,7 +18,7 @@
   border-radius: 10px;
   transition: all 0.1s ease-in;
   text-decoration: none;
-  color: #000;
+  color: #FFF;
   font-size: 2em;
   font-weight: bold;
 }
@@ -35,12 +35,6 @@
   color: #AAA;
 }
 
-.menu-img {
-  width: 30px;
-  height: 30px;
-  margin: 5px 5px 5px 30px;
-}
-
-.menu-img:hover {
-  cursor: pointer;
+.logo-link-span{
+  margin-bottom: 10px
 }

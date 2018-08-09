@@ -1,5 +1,12 @@
+
 .main-container {
   background: rgb(231, 231, 231);
+}
+
+.container-title {
+  text-align: center;
+  font-size: 2em;
+  color: rgb(0, 0, 240);
 }
 
 .main {
@@ -7,10 +14,10 @@
   padding: 10px 10px 7vh;
   width: 100%;
   margin-left: 0;
-  transition: all 1s ease-in-out
+  transition: all 0.5s ease-in-out
 }
 
 .main-collapsed {
   margin-left: 300px;
-  transition: all 1s ease-in-out
+  transition: all 0.5s ease-in-out
 }

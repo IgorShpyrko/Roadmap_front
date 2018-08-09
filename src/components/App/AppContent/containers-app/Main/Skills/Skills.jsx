@@ -39,7 +39,7 @@ class Skills extends Component {
 
     return (
       <div className='skills' >
-        <h3 className='skills-title'>Skills</h3>
+        <h3 className='skills-title container-title'>Skills</h3>
         <UserList listUsers={listUsers} /> 
         { 
           userById ? 

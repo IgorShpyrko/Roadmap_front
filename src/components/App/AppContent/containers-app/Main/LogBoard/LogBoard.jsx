@@ -36,11 +36,11 @@ class LogBoard extends Component {
 
   render() {
 
-  const { log, isAdmin, listUsers, userById } = this.props;
+  const { log, isAdmin, listUsers } = this.props;
 
     return (
       <React.Fragment>
-        <h3>DashBoard</h3>
+        <h3 className='container-title'>DashBoard</h3>
 
         {isAdmin && (listUsers ? <UserList listUsers={listUsers}/> : <h4>ploading... please wait</h4>)}
         {(log !== null ? <LogTable log={log} /> : null )}

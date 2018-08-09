@@ -32,6 +32,20 @@ class Login extends Component {
       this.props.history.replace('/');
     }
   }
+
+  componentDidMount() {
+    document.addEventListener('keypress', (e) => {
+      if(e.keyCode === 13) {
+        if(!this.state.email){
+          return
+        }
+        if(!this.state.password) {
+          return
+        }
+        this.login()
+      }
+    })
+  }
   
   render() {
     return (

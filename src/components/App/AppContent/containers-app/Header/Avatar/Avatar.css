@@ -8,6 +8,7 @@
   padding: 10px;
   border-radius: 5px;
   transition: all 0.1s ease-in-out;
+  color: #FFF;
 }
 
 .log-out:hover {
@@ -30,6 +31,7 @@
   display: table-cell;
   vertical-align: middle;
   padding-right: 5px;
+  color: #FFF;
 }
 
 .avatar-img {
