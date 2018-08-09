@@ -23,7 +23,7 @@ class App extends Component{
 
   changeStateFilter = (filters) => {
     const filterId = filters.map(item => {
-      return item.id
+      return item.id;
     });
     this.setState({
       filtersId: filterId.length !== 0 ? filterId : null

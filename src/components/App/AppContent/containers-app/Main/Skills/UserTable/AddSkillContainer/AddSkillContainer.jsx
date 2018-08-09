@@ -36,10 +36,6 @@ class AddSkillContainer extends Component {
     }
     if(!choosedCategoryId) return;
     
-    // console.log(inputValue);
-    // console.log(descriptionValue);
-    // console.log(choosedCategoryId);
-
     this.props.createNewSkill({
       title: inputValue,
       description: descriptionValue !== '' ? descriptionValue : 'no description',
@@ -63,7 +59,7 @@ class AddSkillContainer extends Component {
   }
 
   render() {
-    const { choosedCategoryName, user } = this.props;
+    const { choosedCategoryName } = this.props;
     const { warning } = this.state;
     return (
       <div className='add-skill-container'>
@@ -89,7 +85,7 @@ class AddSkillContainer extends Component {
                   You must enter Skill Name
                 </div> 
                 <div 
-                  className='create-new-skill-warning-btn'
+                  className='btn create-new-skill-warning-btn'
                   onClick={()=>{this.setState({warning: false})}}>
                     Ok
                 </div>
@@ -109,7 +105,7 @@ class AddSkillContainer extends Component {
               <i className='create-new-skill-name-clear-icon' onClick={this.clearDescriptionValue}>&times;</i>
             </span>
           </div>
-          <button className='add-skill-btn' onClick={this.handleAddSkill}>Add skill</button>
+          <button className='btn add-skill-btn' onClick={this.handleAddSkill}>Add skill</button>
         </div>
       </div>
     );

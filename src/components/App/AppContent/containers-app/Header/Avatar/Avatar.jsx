@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import jwt_decode from 'jwt-decode';
 
-
 import './Avatar.css';
 
 import img from 'img/img.jpg';
@@ -38,12 +37,12 @@ class Avatar extends Component {
   
   render() {
     const image = this.props.user && this.props.user.photo ? this.props.user.photo : img;
-    const { isHoveredAvatar } = this.state;
+    const { isHoveredAvatar, user } = this.state;
 
     return (
       <div className='avatar-wrapper'>
         <div className='avatar-user-name'>
-          <span><b>{this.state.user.name}</b></span>
+          <span><b>{user.name}</b></span>
         </div>
         <div className='avatar' onMouseEnter={this.handleOnAvatarMouseEnter} onMouseLeave={this.handleOnAvatarMouseLeave}>
           <img className='avatar-img' src={image} alt='avatar'/>

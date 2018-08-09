@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 import './LogTable.css';
 
 export default class LogTable extends Component {
-  state = {  }
 
   formatDate = (date) => {
     let newDate = new Date(Date.parse(date.toString()));
     let options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' };
-    return newDate.toLocaleDateString('ru', options)
+    return newDate.toLocaleDateString('ru', options);
   }
 
   compare = (a, b) => {
@@ -19,7 +18,8 @@ export default class LogTable extends Component {
   render() {
     const { log } = this.props;
 
-    const logArray = log ? log.data.sort(this.compare) : null
+    const logArray = log ? log.data.sort(this.compare) : null;
+    
     return (
       <table className='log-table'>
         <tbody className='log-table-body'>

@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Dropdown } from 'primereact/components/dropdown/Dropdown';
-
 
 import { getUserById } from 'actions/getUserById';
+
+import { Dropdown } from 'primereact/components/dropdown/Dropdown';
+
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/omega/theme.css';
-
-import './UserList.css'
+import './UserList.css';
 
 class UserList extends Component {
   constructor() {
@@ -23,7 +23,10 @@ class UserList extends Component {
   }
     
   render() {
-    const { listUsers, userById, isAdmin } = this.props
+    const { listUsers, userById, isAdmin } = this.props;
+
+    const filteredListUsers = listUsers ? listUsers.filter(user => user.role !== 1) : null;
+
     if(!isAdmin) {
       return null
     }
@@ -31,10 +34,10 @@ class UserList extends Component {
       <Dropdown 
         className='user-dropdown'
         value={this.state.user}
-        options={listUsers} 
+        options={filteredListUsers} 
         onChange={this.onUserChange} 
         style={{width:'250px'}} 
-        placeholder={userById ? userById.name : 'Select User'} 
+        placeholder={!isAdmin && userById ? userById.name : 'Select User'} 
         optionLabel='name'
       />
     );

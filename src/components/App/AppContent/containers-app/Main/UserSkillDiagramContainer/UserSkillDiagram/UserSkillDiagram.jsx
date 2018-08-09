@@ -56,8 +56,6 @@ class CustomizedContent extends Component{
   }
 };
 
-
-
 class SimpleTreemap extends Component{
   state = {
     innerWidth: null
@@ -69,20 +67,23 @@ class SimpleTreemap extends Component{
 
   onresize = () => {
     this.setState({
-      innerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight
     })
   }
 
   componentWillMount() {
     window.addEventListener('resize', this.onresize)
     this.setState({
-      innerWidth: window.innerWidth
+      innerWidth: window.innerWidth,
+      innerHeight: window.innerHeight
     })
   }
   componentWillUnmount() {
     window.removeEventListener('resize', this.onresize)
     this.setState({
-      innerWidth: null
+      innerWidth: null,
+      innerHeight: null
     })
   }
 
@@ -109,29 +110,32 @@ class SimpleTreemap extends Component{
     let treemapWidth;
     let treemapFontSize;
 
-    if(this.state.innerWidth > 1600){
-      treemapWidth = 1200;
-      treemapFontSize = 16;
-    }
+    const { innerWidth, innerHeight } = this.state
 
-    if(this.state.innerWidth <= 1600 && this.state.innerWidth > 1250){
-      treemapWidth = 900;
-      treemapFontSize = 14;
-    }
-    if(this.state.innerWidth <= 1250 && this.state.innerWidth > 800){
-      treemapWidth = 450;
-      treemapFontSize = 11;
-    }
-    if(this.state.innerWidth <= 800) {
-      treemapWidth = 250;
-      treemapFontSize = 8;
-    }
+    // adjusting Treemap size 
+    // to screen sise
+      if(innerWidth > 1600 || innerHeight > 900){
+        treemapWidth = 1200;
+        treemapFontSize = 16;
+      }
+      if(innerWidth <= 1600 && innerWidth > 1250 || innerHeight < 900 && innerHeight > 700){
+        treemapWidth = 900;
+        treemapFontSize = 14;
+      }
+      if(innerWidth <= 1250 && innerWidth > 800 || innerHeight < 700 && innerHeight > 450){
+        treemapWidth = 450;
+        treemapFontSize = 11;
+      }
+      if(innerWidth <= 800 || innerHeight < 450) {
+        treemapWidth = 250;
+        treemapFontSize = 8;
+      }
+    // ...
 
     const { skills, choosedCategoryId } = this.props;
 
     const preparedData = skills ? this.prepareData(skills) : null;
     const filteredByCategory = choosedCategoryId ? this.filterSkillsByCategory(preparedData) : null;
-
 
   	return (
       <Treemap

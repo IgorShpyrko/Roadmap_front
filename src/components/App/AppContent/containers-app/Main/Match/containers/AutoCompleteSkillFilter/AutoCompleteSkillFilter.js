@@ -43,25 +43,28 @@ export class AutoCompleteSkillFilter extends Component {
   }
 
   render() {
+
+    const { skills, filteredSkill } = this.state;
+
     return (
       <div className='autocomplete-skill-filter'>
         <h3>Skills</h3>
-        <span className="ui-fluid">
+        <span className='ui-fluid'>
           <AutoComplete 
-          value={this.state.skills} 
-          suggestions={this.state.filteredSkill} 
-          completeMethod={this.filterSkillMultiple}
-          minLength={1} 
-          placeholder="Skills"  
-          field="name" 
-          multiple={true} 
-          onChange={(e) => {
-            if(!e.value){this.clearFilter()}
-            this.setState({skills: e.value});
-            this.props.changeStateFilter(e.value);
-          }} />
+            value={skills} 
+            suggestions={filteredSkill} 
+            completeMethod={this.filterSkillMultiple}
+            minLength={1} 
+            placeholder='Skills'  
+            field='name' 
+            multiple={true} 
+            onChange={(e) => {
+              if(!e.value){this.clearFilter()}
+              this.setState({skills: e.value});
+              this.props.changeStateFilter(e.value);
+            }} />
         </span>
-        <button className='autocomplete-skill-filter-clear-btn' onClick={this.clearFilter}>Clear filters</button>
+        <button className='btn autocomplete-skill-filter-clear-btn' onClick={this.clearFilter}>Clear filters</button>
       </div>
     )
   }

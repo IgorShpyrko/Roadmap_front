@@ -11,7 +11,7 @@ export default class SkillNavBar extends Component {
         {categories.map((category) => {
           return (
             <button
-              className={`category-btn ${category.id === choosedCategoryId ? 'active' : ''}`}
+              className={`btn ${category.id === choosedCategoryId ? 'active' : ''}`}
               key={category.id} 
               onClick={(e) => {handleChooseCategory(category.id, e)}}
             >

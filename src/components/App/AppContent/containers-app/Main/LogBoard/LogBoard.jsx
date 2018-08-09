@@ -1,37 +1,35 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
 
-import { getUserLog } from 'actions/getUserLog';
-import { getUserList } from 'actions/getUserList';
 import LogTable from './LogTable/LogTable';
 import UserList from 'containers/UserList/UserList';
+import { getUserLog } from 'actions/getUserLog';
+import { getUserList } from 'actions/getUserList';
 
 
 class LogBoard extends Component {
-  state = {  }
 
   componentDidMount() {
     if(!this.props.isAdmin && this.props.user){
-      this.props.getUserLog(this.props.user.id)
+      this.props.getUserLog(this.props.user.id);
     }
     if(this.props.isAdmin){
-      this.props.getUserList()
+      this.props.getUserList();
     }
   }
 
   shouldComponentUpdate(nextProps){
       if(nextProps.userById !== this.props.userById){
-        this.props.getUserLog(nextProps.userById.id)
-        return true
+        this.props.getUserLog(nextProps.userById.id);
+        return true;
       }
       if(nextProps.log !== this.props.log){
-        return true
+        return true;
       }
       if(nextProps.listUsers !== this.props.listUsers){
-        return true
+        return true;
       }
-    return false
+    return false;
   }
 
   render() {
@@ -41,10 +39,16 @@ class LogBoard extends Component {
     return (
       <React.Fragment>
         <h3 className='container-title'>DashBoard</h3>
-
-        {isAdmin && (listUsers ? <UserList listUsers={listUsers}/> : <h4>ploading... please wait</h4>)}
-        {(log !== null ? <LogTable log={log} /> : null )}
-
+        {
+          isAdmin && (listUsers ? 
+            <UserList listUsers={listUsers}/> :
+            <h4>ploading... please wait</h4>)
+        }
+        {
+          (log !== null ?
+            <LogTable log={log} /> :
+            null)
+        }
       </React.Fragment>
     );
   }

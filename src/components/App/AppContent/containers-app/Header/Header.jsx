@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 import './Header.css';
 
-import Avatar from './Avatar/Avatar'
+import Avatar from './Avatar/Avatar';
 import logo from 'img/logo.png';
 
 

@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import './User.css';
 
 export default class User extends Component {
-
   state = { 
     markSum: 0
   }
@@ -33,15 +32,17 @@ export default class User extends Component {
   render() {
     
     const { user, isSelected } = this.props;
+    const { markSum } = this.state;
 
-    const wrapperClassName = isSelected ? 'matched-user selected-user' : 'matched-user'
+    const wrapperClassName = isSelected ? 'matched-user selected-user' : 'matched-user';
+
     return (
       <div className={wrapperClassName}>
         <div className='matched-user-name'>
           <h4>{user.name}</h4>
         </div>
         <div>
-          <h4>Mark sum: {this.state.markSum}</h4>
+          <h4>Mark sum: {markSum}</h4>
         </div>
         <div className='matched-user-skills'>
           {user.userSkills.map((skill, idx) => {

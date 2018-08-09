@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
-
 
 import User from './User/User';
 import './MatchedUsers.css';
@@ -11,20 +9,32 @@ class MatchedUsers extends Component {
   render() {
     const { matchedUsers, selectedUser } = this.props;
 
+    if(!selectedUser) {
+      return null
+    }
+
     if (!matchedUsers || matchedUsers.length === 0) {
       return null 
     }
 
+    const sortedUsers = matchedUsers.sort(user => {
+      if(user.name !== selectedUser.name){
+        return 1
+      }
+      if(user.name === selectedUser.name){
+        return -1
+      }
+    })
 
-    
     return (
       <div className='matched-users'>
-        {
-          matchedUsers.map((user, idx) => <User key={idx} user={user} isSelected={selectedUser ? user.name === selectedUser.name : false}/>)
-        }
+        {sortedUsers.map((user, idx) =>
+          <User key={idx} user={user} isSelected={selectedUser ?
+            user.name === selectedUser.name :
+            false}/>
+        )}
       </div>
     )
-
   }
 }
 
