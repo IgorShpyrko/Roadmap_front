@@ -27,13 +27,16 @@ class MatchedUsers extends Component {
     })
 
     return (
-      <div className='matched-users'>
-        {sortedUsers.map((user, idx) =>
-          <User key={idx} user={user} isSelected={selectedUser ?
-            user.name === selectedUser.name :
-            false}/>
-        )}
-      </div>
+      <React.Fragment>
+        <hr/>
+        <div className='matched-users'>
+          {sortedUsers.map((user, idx) =>
+            <User key={idx} user={user} isSelected={selectedUser ?
+              user.name === selectedUser.name :
+              false}/>
+          )}
+        </div>
+      </React.Fragment>
     )
   }
 }

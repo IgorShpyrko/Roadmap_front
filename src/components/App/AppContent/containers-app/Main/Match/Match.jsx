@@ -48,7 +48,7 @@ class App extends Component{
           <UserList listUsers={listUsers} />
           <hr/>
           <AutoCompleteSkillFilter skillList={skillList} changeStateFilter={this.changeStateFilter}/>
-          <hr/>
+          
           <MatchedUsers matchedUsers={matchedUsers}/>
         </div>
       </React.Fragment>
