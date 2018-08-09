@@ -89,7 +89,7 @@ class UserTable extends Component{
       <tr key='header'>
         <th>Name</th>
         <th>Mark</th>
-        <th>Disposition</th>
+        <th>Aim</th>
         <th>Comments</th>
       </tr>
     ];
