@@ -107,15 +107,14 @@ class SimpleTreemap extends Component{
   }
 
 	render () {
-    let treemapWidth;
-    let treemapFontSize;
-
     const { innerWidth, innerHeight } = this.state;
-
-    console.log(this.state)
-
+    
     // adjusting Treemap size 
     // to screen sise
+    
+      let treemapWidth;
+      let treemapFontSize;
+
       if(innerWidth > 1600 || innerHeight > 900){
         treemapWidth = 1200;
         treemapFontSize = 16;
@@ -138,6 +137,10 @@ class SimpleTreemap extends Component{
 
     const preparedData = skills ? this.prepareData(skills) : null;
     const filteredByCategory = choosedCategoryId ? this.filterSkillsByCategory(preparedData) : null;
+
+    if(skills.length === 0){
+      return null
+    }
 
   	return (
       <Treemap
