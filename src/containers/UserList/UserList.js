@@ -37,7 +37,7 @@ class UserList extends Component {
         options={filteredListUsers} 
         onChange={this.onUserChange} 
         style={{width:'250px'}} 
-        placeholder={!isAdmin && userById ? userById.name : 'Select User'} 
+        placeholder={userById && userById.role !== 1 ? userById.name : 'Select User'} 
         optionLabel='name'
       />
     );

@@ -15,6 +15,9 @@ class LogBoard extends Component {
     }
     if(this.props.isAdmin){
       this.props.getUserList();
+      if(this.props.userById){
+        this.props.getUserLog(this.props.userById.id);
+      }
     }
   }
 
@@ -38,7 +41,7 @@ class LogBoard extends Component {
 
     return (
       <React.Fragment>
-        <h3 className='container-title'>DashBoard</h3>
+        <h3 className='container-title'>Log Board</h3>
         {
           isAdmin && (listUsers ? 
             <UserList listUsers={listUsers}/> :

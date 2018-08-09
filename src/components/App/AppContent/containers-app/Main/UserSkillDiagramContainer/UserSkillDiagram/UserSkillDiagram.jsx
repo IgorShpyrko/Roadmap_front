@@ -19,7 +19,7 @@ class CustomizedContent extends Component{
           width={width}
           height={height}
           style={{
-            fill: mark < 2 ? colors[0] : mark < 4 ? colors[1] : mark < 6 ? colors[2] : mark < 8 ? colors [3] : mark < 10 ? colors[4] : colors[5],
+            fill: mark < 2 ? colors[0] : mark < 4 ? colors[1] : mark < 6 ? colors[2] : mark < 8 ? colors[3] : mark < 10 ? colors[4] : colors[5],
             stroke: '#fff',
             strokeWidth: 2 / (depth + 1e-10),
             strokeOpacity: 1 / (depth + 1e-10),
@@ -110,7 +110,9 @@ class SimpleTreemap extends Component{
     let treemapWidth;
     let treemapFontSize;
 
-    const { innerWidth, innerHeight } = this.state
+    const { innerWidth, innerHeight } = this.state;
+
+    console.log(this.state)
 
     // adjusting Treemap size 
     // to screen sise
@@ -118,11 +120,11 @@ class SimpleTreemap extends Component{
         treemapWidth = 1200;
         treemapFontSize = 16;
       }
-      if(innerWidth <= 1600 && innerWidth > 1250 || innerHeight < 900 && innerHeight > 700){
+      if((innerWidth <= 1600 && innerWidth > 1250) || (innerHeight < 900 && innerHeight > 700)){
         treemapWidth = 900;
         treemapFontSize = 14;
       }
-      if(innerWidth <= 1250 && innerWidth > 800 || innerHeight < 700 && innerHeight > 450){
+      if((innerWidth <= 1250 && innerWidth > 800) || (innerHeight < 700 && innerHeight > 450)){
         treemapWidth = 450;
         treemapFontSize = 11;
       }

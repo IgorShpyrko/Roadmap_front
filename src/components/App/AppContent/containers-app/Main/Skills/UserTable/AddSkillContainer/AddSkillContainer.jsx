@@ -63,7 +63,7 @@ class AddSkillContainer extends Component {
     const { warning } = this.state;
     return (
       <div className='add-skill-container'>
-        <h3>Add New Skill in '{choosedCategoryName}' category</h3>
+        <h3>Add New Skill in category '{choosedCategoryName}'</h3>
         <div className='add-skill-wrapper'>
           <div className='add-skill-component'>
             <label htmlFor='create-new-skill-name'><b>Skill Name:</b></label>

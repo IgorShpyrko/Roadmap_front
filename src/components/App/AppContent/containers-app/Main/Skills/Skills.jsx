@@ -34,6 +34,7 @@ class Skills extends Component {
   }
   
   render() {
+    console.log(this.props)
 
     const { listUsers, userById } = this.props;
 
