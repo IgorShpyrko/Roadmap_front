@@ -29,7 +29,7 @@ class UserTable extends Component{
     this.setState((prevState) => {
       return {
         isActiveAddSkill: !prevState.isActiveAddSkill,
-        addSkillBtnText: prevState.addSkillBtnText === 'Create New Skill' ? 'Close' : 'Create New Skill'
+        addSkillBtnText: !prevState.isActiveAddSkill ? 'Close' : 'Create New Skill'
       }
     })
   }
@@ -135,7 +135,7 @@ class UserTable extends Component{
             choosedCategoryId={choosedCategoryId}
             handleChooseCategory={this.handleChooseCategory}/>}
         {isAdmin ? 
-          <button className='user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>
+          <button className='btn user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>
             {this.state.addSkillBtnText}
           </button> :
           null

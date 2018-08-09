@@ -3,9 +3,9 @@
   margin: 5px;
   border: 1px solid black;
   border-radius: 5px;
-  background: #838689;
+  background: rgba(70, 70, 70, 0.3);
 }
 
 .matched-user.selected-user {
-  background: rgba(0, 0, 240, 0.5);
+  background: rgba(70, 70, 70, 0.8);
 }

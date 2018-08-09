@@ -1,31 +1,30 @@
 .log-table {
   width: 100%;
   border-collapse: collapse;
-  border-bottom: 1px solid rgba(0, 0, 240, 0.5);
 }
 
 .log-table-row {
-  border-bottom: 1px solid rgba(0, 0, 240, 0.5);
+  border-bottom: 1px solid rgba(70, 70, 70, 0.5);
   transition: all 0.3s ease-in-out;
 }
 
 .log-table-row:hover {
-  background: rgba(0, 0, 240, 0.5);
+  background: rgba(70, 70, 70, 0.5);
   transition: all 0.3s ease-in-out;
 }
 
 .log-table-name-cell {
-  border-bottom: 1px solid rgba(0, 0, 240, 0.5);
+  border-bottom: 1px solid rgba(70, 70, 70, 0.5);
   padding: 10px;
 }
 
 .log-table-header {
   padding: 10px;
-  border-bottom: 1px solid rgba(0, 0, 240, 0.5);
+  border-bottom: 1px solid rgba(70, 70, 70, 0.5);
 }
 
 .log-table-cell {
-  border-bottom: 1px solid rgba(0, 0, 240, 0.5);
+  border-bottom: 1px solid rgba(70, 70, 70, 0.5);
   text-align: center;
   padding: 10px;
 }

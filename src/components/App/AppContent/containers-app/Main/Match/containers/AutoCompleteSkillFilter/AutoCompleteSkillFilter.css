@@ -1,0 +1,9 @@
+.ui-state-highlight {
+  border-color: rgba(70, 70, 70, 0.7);
+  background: rgba(70, 70, 70, 0.7);
+}
+
+.ui-autocomplete-panel .ui-autocomplete-list-item:hover {
+  border-color: rgba(70, 70, 70, 0.7);
+  background: rgba(70, 70, 70, 0.7);
+}

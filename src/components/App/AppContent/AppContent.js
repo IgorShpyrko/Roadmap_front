@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import Header from './containers-app/Header/Header.jsx';
 import Menu from './containers-app/Menu/Menu.jsx';
 import Main from './containers-app/Main/Main.jsx';
-import Footer from './containers-app/Footer/Footer.jsx';
 
 
 import './AppContent.css';
@@ -37,7 +36,6 @@ class AppComponent extends Component {
           <Menu navClassName={this.state.navClassName} handleToggle={this.handleToggle} user={user} isAdmin={isAdmin}/>
           <Main mainClassName={this.state.mainClassName} />
         </div>
-        <Footer />
       </div>
     );
   }

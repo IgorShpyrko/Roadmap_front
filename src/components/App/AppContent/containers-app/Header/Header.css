@@ -1,5 +1,5 @@
 .header {
-  background: rgb(0, 0, 220);
+  background: rgb(70, 70, 70);
   min-height: 7vh;
   position: sticky;
   top: 0;
@@ -24,8 +24,8 @@
 }
 
 .logo-link:hover {
-  background: #00F;
-  box-shadow: inset 0 0 3px 3px  rgb(0, 0, 220);
+  background: rgba(50, 50, 50, 0.7);
+  box-shadow: inset 0 0 3px 3px  rgb(50, 50, 50);
   border-radius: 10px;
   transition: background 0.1s ease-out;
 }
