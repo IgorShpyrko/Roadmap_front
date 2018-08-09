@@ -33,18 +33,24 @@ class Login extends Component {
     }
   }
 
-  componentDidMount() {
-    document.addEventListener('keypress', (e) => {
-      if(e.keyCode === 13) {
-        if(!this.state.email){
-          return
-        }
-        if(!this.state.password) {
-          return
-        }
-        this.login()
+  listener = (e) => {
+    if(e.keyCode === 13) {
+      if(!this.state.email){
+        return
       }
-    })
+      if(!this.state.password) {
+        return
+      }
+      this.login()
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener('keypress', this.listener)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keypress', this.listener);
   }
   
   render() {
