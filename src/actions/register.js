@@ -9,7 +9,7 @@ export const registerAction = (email, password, name) => dispatch => {
     localStorage.setItem('token', response.data.token);
     window.location.reload();
   })
-  .catch(function (error) {  
+  .catch(function (error) { 
   });
 }
 

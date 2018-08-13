@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Switch, Route, Redirect, BrowserRouter } from 'react-router-dom';
 
 import Login from 'components/Login/Login';
-import Register from 'components/Register/Register';
+import Register from 'components/Register/Register.jsx';
 import AppContent from 'components/App/AppContent/AppContent';
 
 import { checkAuthAction, getCheckAdminAction } from 'actions/auth';

@@ -55,14 +55,7 @@ class Login extends Component {
   
   render() {
     return (
-      <div 
-        className='login-general' 
-        style={{
-          display: 'flex', 
-          justifyContent: 'center', 
-          alignItems: 'center',
-          height: '100vh'
-        }}>        
+      <div className='login-general'>        
         <div className='login-container'>
           <form id='login-form' autoComplete='off'>
             <input className='login-input'

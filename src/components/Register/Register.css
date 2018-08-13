@@ -1,0 +1,51 @@
+.register-wrapper {
+  background: rgba(0, 0, 0, 0.12);
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.register-login {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.register-input {
+  height: 26px;
+  width: 300px;
+  margin: 5px;
+}
+
+.register-login-input, .register-password-input {
+  margin: 5px;
+}
+
+.register-login-form {
+  display: flex;
+  flex-flow: column;
+}
+
+.register-container {
+  padding: 20px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 0;
+  background: #FFF;
+}
+
+.register-header {
+  color: rgba(70, 70, 70, 0.7);
+}
+
+.register-warning {
+  color: red;
+  padding: 5px 15px;
+  font-size: 0.7em;
+}
