@@ -48,3 +48,8 @@
 .btn.active {
   background: rgb(70, 70, 70);
 }
+
+.btn:disabled {
+  background: rgb(200, 200, 200);
+  color: rgb(150, 150, 150);
+}

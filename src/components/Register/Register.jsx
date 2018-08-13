@@ -21,10 +21,8 @@ class Register extends Component {
     warningConfirmPasswordMessage: ''
   }
 
-  static getDerivedStateFromProps(props, state){
+  static getDerivedStateFromProps(props){
 
-    console.log('props :', props);
-    console.log('state :', state);
     if(props.status === 'success'){
       props.history.replace('/');
       return true
@@ -33,6 +31,7 @@ class Register extends Component {
   }
 
   sendRegistrationData = () => {
+    console.log('wejbtrhwjioe')
     const {
       registerName,
       registerEmail,
@@ -260,7 +259,17 @@ class Register extends Component {
               {registerPassword !== confirmRegisterPassword && <div className='register-warning'>passwords are not equal</div>}
             </div>
             <div className='register-control-btns'>
-              <button className='btn register-btn' onClick={this.sendRegistrationData}>
+              <button 
+                className='btn register-btn' 
+                disabled={
+                  warningLoginMessage === '' &&
+                  warningEmailMessage === '' && 
+                  warningPasswordMessage === '' && 
+                  warningConfirmPasswordMessage === '' &&
+                  registerName !== '' &&
+                  registerEmail !== '' &&
+                  registerPassword !== '' &&
+                  confirmRegisterPassword !== '' ? false : true} onClick={this.sendRegistrationData}>
                 Register
               </button>
             </div>
