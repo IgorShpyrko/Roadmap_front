@@ -47,7 +47,7 @@ class LogBoard extends Component {
             <UserList listUsers={listUsers}/> :
             <h4>ploading... please wait</h4>)
         }
-        { userById && userById.role !== 1 &&
+        { log &&
           (log !== null ?
             <LogTable log={log} /> :
             null)
