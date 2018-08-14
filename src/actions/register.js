@@ -7,9 +7,10 @@ export const registerAction = (email, password, name) => dispatch => {
     }})
   .then(function (response) {
     localStorage.setItem('token', response.data.token);
-    window.location.reload();
+    dispatch({ type: 'REGISTER_SUCCESS', payload: response.data })
   })
   .catch(function (error) { 
+    dispatch({ type: 'REGISTER_ERROR', payload: error})
   });
 }
 

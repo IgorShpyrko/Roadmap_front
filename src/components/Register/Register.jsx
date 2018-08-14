@@ -22,6 +22,12 @@ class Register extends Component {
   }
 
   static getDerivedStateFromProps(props){
+    console.log(props)
+
+    if(props.registerStatus === 'success'){
+      props.history.replace('/');
+      return true
+    }
 
     if(props.status === 'success'){
       props.history.replace('/');
@@ -31,7 +37,6 @@ class Register extends Component {
   }
 
   sendRegistrationData = () => {
-    console.log('wejbtrhwjioe')
     const {
       registerName,
       registerEmail,
@@ -181,7 +186,9 @@ class Register extends Component {
   }
 
   render() {
-    
+
+    console.log('render')
+
     const { loginEmail,
       loginPassword,
       registerName,
@@ -269,7 +276,9 @@ class Register extends Component {
                   registerName !== '' &&
                   registerEmail !== '' &&
                   registerPassword !== '' &&
-                  confirmRegisterPassword !== '' ? false : true} onClick={this.sendRegistrationData}>
+                  confirmRegisterPassword !== '' ? false : true} 
+                onClick={this.sendRegistrationData}
+              >
                 Register
               </button>
             </div>
@@ -285,6 +294,7 @@ function mapStateToProps(state) {
   return {
     ...state,
     status: state.auth.status,
+    registerStatus: state.register.status
   }
 }
 

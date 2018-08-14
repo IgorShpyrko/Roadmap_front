@@ -7,6 +7,7 @@ import { getUserList } from './getUserList';
 import { getSkillsCategories } from './getSkillsCategories';
 import { getMatchedUsers } from './getMatchedUsers';
 import { getUserLog } from './getUserLog';
+import { register } from './register';
 
 export const rootReducer = combineReducers({
   auth,
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
   getUserList,
   getSkillsCategories,
   getMatchedUsers,
-  getUserLog
+  getUserLog,
+  register
 });
