@@ -12,7 +12,7 @@ import DispositionCell from './DispositionCell/DispositionCell';
 import CommentCell from './CommentCell/CommentCell';
 import AddSkillContainer from './AddSkillContainer/AddSkillContainer';
 
-import './UserTable.css'
+import './UserTable.css';
 
 class UserTable extends Component{
   constructor(props) {
@@ -135,9 +135,11 @@ class UserTable extends Component{
             choosedCategoryId={choosedCategoryId}
             handleChooseCategory={this.handleChooseCategory}/>}
         {isAdmin ? 
-          <button className='btn user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>
-            {this.state.addSkillBtnText}
-          </button> :
+          <div className='user-table-add-skill-btn-container'>
+            <button className='btn user-table-add-skill-btn' onClick={this.handleToggleAddSkillContainer}>
+              {this.state.addSkillBtnText}
+            </button>
+          </div> :
           null
         }
         {this.state.isActiveAddSkill ?

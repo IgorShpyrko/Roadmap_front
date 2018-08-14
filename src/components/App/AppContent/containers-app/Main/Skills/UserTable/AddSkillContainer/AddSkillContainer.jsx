@@ -97,6 +97,7 @@ class AddSkillContainer extends Component {
             <label htmlFor='create-new-skill-description'><b>Description:</b></label>
             <span className='clearable-input'>
               <textarea 
+                className='create-new-skill-input textarea'
                 name='create-new-skill-description' 
                 type='text'
                 value={this.state.descriptionValue}
