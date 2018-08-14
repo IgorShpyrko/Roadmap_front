@@ -1,5 +1,8 @@
 .add-skill-container {
   text-align: center;
+  background: #ccc;
+  padding: 30px;
+  border-radius: 30px;
 }
 
 .add-skill-wrapper {
