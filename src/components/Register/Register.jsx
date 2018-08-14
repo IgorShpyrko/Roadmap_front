@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 
 import { loginAction } from 'actions/auth';
 import { registerAction } from 'actions/register';
 
-import './Register.css'
+import './Register.css';
 
 class Register extends Component {
   state = { 
@@ -55,7 +54,6 @@ class Register extends Component {
       )
     }
   }
-
 
   login = () => {
     this.props.loginFunction(this.state.loginEmail, this.state.loginPassword);
@@ -187,8 +185,6 @@ class Register extends Component {
 
   render() {
 
-    console.log('render')
-
     const { loginEmail,
       loginPassword,
       registerName,
@@ -204,7 +200,6 @@ class Register extends Component {
     return (
       <React.Fragment>
         <div className='register-wrapper'>
-
             <div className='register-login'>
               <form className='register-login-form'>
                 <input className='register-login-input'
@@ -308,7 +303,5 @@ function mapDispatchToProps(dispatch) {
     }
   }
 }
-
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(Register)
