@@ -37,7 +37,7 @@ class LogBoard extends Component {
 
   render() {
 
-  const { log, isAdmin, listUsers, userById } = this.props;
+    const { log, isAdmin, listUsers, userById } = this.props;
 
     return (
       <React.Fragment>
