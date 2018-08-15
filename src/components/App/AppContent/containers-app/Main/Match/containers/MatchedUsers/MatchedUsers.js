@@ -18,7 +18,6 @@ class MatchedUsers extends Component {
     }
 
     const sortedUsers = matchedUsers.sort(user => {
-      console.log(user)
       if(user.name !== selectedUser.name){
         return 1
       }

@@ -42,15 +42,11 @@ class LogBoard extends Component {
     return (
       <React.Fragment>
         <h3 className='container-title'>Log Board</h3>
-        {
-          isAdmin && (listUsers ? 
-            <UserList listUsers={listUsers}/> :
-            <h4>ploading... please wait</h4>)
-        }
-        { log &&
-          (log !== null ?
+        {isAdmin && <UserList listUsers={listUsers}/>}
+        { 
+          log && (log !== null) ?
             <LogTable log={log} /> :
-            null)
+            null
         }
       </React.Fragment>
     );

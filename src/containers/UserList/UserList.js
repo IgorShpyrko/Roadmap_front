@@ -30,6 +30,9 @@ class UserList extends Component {
     if(!isAdmin) {
       return null
     }
+    if(!listUsers){
+      return <h4>loading... please wait</h4>
+    }
     return (
       <Dropdown 
         className='user-dropdown'

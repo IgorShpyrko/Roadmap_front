@@ -173,16 +173,12 @@ class UserTable extends Component{
 
         {skills.length > 1 ? 
           <table className='user-table'>
-          <tbody>
-            <tr>
-              <th colSpan='4'>
-                {this.state.choosedCategoryName}
-              </th>
-            </tr>
-            {sortedSkills}
-          </tbody>
-        </table> : 
-        null} 
+            <caption><h3>{this.state.choosedCategoryName}</h3></caption>
+            <tbody>
+              {sortedSkills}
+            </tbody>
+          </table> : 
+          null} 
       </div>
     );
   }
