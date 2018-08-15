@@ -21,7 +21,7 @@ export default class LogTable extends Component {
     return newDate.toLocaleDateString('ru', options);
   }
 
-  compare = (a, b) => {
+  sortLogFunction = (a, b) => {
     if(this.state.isSortedBy === 0){
       if (a.userSkill.skill.title > b.userSkill.skill.title) return 1;
       if (a.userSkill.skill.title < b.userSkill.skill.title) return -1;
@@ -29,10 +29,18 @@ export default class LogTable extends Component {
     if(this.state.isSortedBy === 1){
       if (a.skill_old < b.skill_old) return 1;
       if (a.skill_old > b.skill_old) return -1;
+      if (a.skill_old === b.skill_old) {
+        if (a.userSkill.skill.title > b.userSkill.skill.title) return 1;
+        if (a.userSkill.skill.title < b.userSkill.skill.title) return -1;
+      }
     }
     if(this.state.isSortedBy === 2){
       if (a.skill_new < b.skill_new) return 1;
       if (a.skill_new > b.skill_new) return -1;
+      if (a.skill_new === b.skill_new) {
+        if (a.userSkill.skill.title > b.userSkill.skill.title) return 1;
+        if (a.userSkill.skill.title < b.userSkill.skill.title) return -1;
+      }
     }
     if(this.state.isSortedBy === 3){
       if (a.updatedAt < b.updatedAt) return 1;
@@ -54,7 +62,7 @@ export default class LogTable extends Component {
     }
     
     // sorting log
-    const logArray = log ? log.data.sort(this.compare) : null;
+    const logArray = log ? log.data.sort(this.sortLogFunction) : null;
     
     // how many logs are visible on a page
     const logArrayOnPage = (log && page) ? logArray.filter((log, idx) => {
