@@ -38,11 +38,19 @@ class UserTable extends Component{
     if(this.state.isSortedBy === 1) {
       if(+a.props.children[1].props.skillMark < +b.props.children[1].props.skillMark) return 1;
       if(+a.props.children[1].props.skillMark > +b.props.children[1].props.skillMark) return -1;
+      if(+a.props.children[1].props.skillMark === +b.props.children[1].props.skillMark) {
+        if(a.props.children[0].props.skillTitle < b.props.children[0].props.skillTitle) return -1;
+        if(a.props.children[0].props.skillTitle > b.props.children[0].props.skillTitle) return 1;
+      };
     }
     //sort by Aim
     if(this.state.isSortedBy === 2) {
       if(+a.props.children[2].props.skillDisposition < +b.props.children[2].props.skillDisposition) return 1;
       if(+a.props.children[2].props.skillDisposition > +(b.props.children[2].props.skillDisposition)) return -1;
+      if(+a.props.children[2].props.skillDisposition === +(b.props.children[2].props.skillDisposition)) {
+        if(a.props.children[0].props.skillTitle < b.props.children[0].props.skillTitle) return -1;
+        if(a.props.children[0].props.skillTitle > b.props.children[0].props.skillTitle) return 1;
+      };
     }
   }
 
