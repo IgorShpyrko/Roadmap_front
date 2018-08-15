@@ -16,7 +16,7 @@ class Skills extends Component {
       props.getUserList();
     }
     if(!props.userById){
-      if(props.user){
+      if(props.user && props.user.role !== 1){
         props.getUserById(props.user.id)
       }
     }
@@ -34,6 +34,7 @@ class Skills extends Component {
   }
   
   render() {
+    console.log(this.props)
 
     const { listUsers, userById } = this.props;
 
