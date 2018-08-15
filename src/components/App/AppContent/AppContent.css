@@ -6,11 +6,10 @@
 .container{
   width: 100%;
   min-height: 100vh;
-
-  -webkit-animation: fade-in 1s linear; /* Safari 4+ */
-  -moz-animation: fade-in 1s linear; /* Fx 5+ */
-  -o-animation: fade-in 1s linear; /* Opera 12+ */
-  animation: fade-in 1s linear; /* IE 10+, Fx 29+ */
+  -webkit-animation: fade-in 0.5s linear; /* Safari 4+ */
+  -moz-animation: fade-in 0.5s linear; /* Fx 5+ */
+  -o-animation: fade-in 0.5s linear; /* Opera 12+ */
+  animation: fade-in 0.5s linear; /* IE 10+, Fx 29+ */
 }
 
 .main-container{

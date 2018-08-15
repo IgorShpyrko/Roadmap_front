@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getSkillsCategories } from 'actions/getSkillsCategories';
 import { editSkillsMarkAction } from 'actions/skill' ;
 import { editSkillsDispositionAction } from 'actions/skill' ;
+import { editSkillsCommentAction } from 'actions/skill' ;
 
 import SkillNavBar from 'containers/SkillNavBar/SkillNavBar';
 
@@ -21,8 +22,28 @@ class UserTable extends Component{
       choosedCategoryId: 1,
       choosedCategoryName: 'JavaScript',
       isActiveAddSkill: false,
-      addSkillBtnText: 'Create New Skill'
+      addSkillBtnText: 'Create New Skill',
+      isSortedBy: 0
     };
+  }
+
+  sortSkills = (a, b) => {
+
+    // sort by name
+    if(this.state.isSortedBy === 0) {
+      if(a.props.children[0].props.skillTitle < b.props.children[0].props.skillTitle) return -1;
+      if(a.props.children[0].props.skillTitle > b.props.children[0].props.skillTitle) return 1;
+    }
+    // sort by Mark
+    if(this.state.isSortedBy === 1) {
+      if(+a.props.children[1].props.skillMark < +b.props.children[1].props.skillMark) return 1;
+      if(+a.props.children[1].props.skillMark > +b.props.children[1].props.skillMark) return -1;
+    }
+    //sort by Aim
+    if(this.state.isSortedBy === 2) {
+      if(+a.props.children[2].props.skillDisposition < +b.props.children[2].props.skillDisposition) return 1;
+      if(+a.props.children[2].props.skillDisposition > +(b.props.children[2].props.skillDisposition)) return -1;
+    }
   }
 
   handleToggleAddSkillContainer = () => {
@@ -35,10 +56,11 @@ class UserTable extends Component{
   }
 
   handleChangeSkillComment = (...props) => {
+
     if(props[0] === null){
       return
     };
-    this.props.editSkillsDispositionAction(
+    this.props.editSkillsCommentAction(
       this.props.user.id,
       props[0].skillId,
       props[0].newComment
@@ -72,7 +94,8 @@ class UserTable extends Component{
       choosedCategoryId: id,
       choosedCategoryName: e.target.innerHTML,
       isActiveAddSkill: false,
-      addSkillBtnText: 'Create New Skill'
+      addSkillBtnText: 'Create New Skill',
+      isSortedBy: 0
     });
   }
 
@@ -87,10 +110,10 @@ class UserTable extends Component{
 
     let skills= [
       <tr key='header'>
-        <th>Name</th>
-        <th>Mark</th>
-        <th>Aim</th>
-        <th>Comments</th>
+        <th onClick={(e) => {this.setState({isSortedBy:0})}}>Name</th>
+        <th onClick={(e) => {this.setState({isSortedBy:1})}}>Mark</th>
+        <th onClick={(e) => {this.setState({isSortedBy:2})}}>Aim</th>
+        <th onClick={(e) => {this.setState({isSortedBy:3})}}>Comments</th>
       </tr>
     ];
 
@@ -98,7 +121,6 @@ class UserTable extends Component{
       if(skill === null || skill.skill === null){
         return
       }
-      // if is admin: 
       if( skill.skill.categoryId === choosedCategoryId){
         skills.push (
           <tr key={skill.id}>
@@ -109,24 +131,23 @@ class UserTable extends Component{
               skillId={skill.skillId} 
               skillMark={skill.mark} 
               handleChangeSkillMark={this.handleChangeSkillMark}
-              isAdmin={isAdmin}
             />
             <DispositionCell 
               skillId={skill.skillId} 
               skillDisposition={skill.disposition} 
               handleChangeSkillDisposition={this.handleChangeSkillDisposition}
-              isAdmin={isAdmin}
             />
             <CommentCell
               skillId={skill.skillId}
               skillComment={skill.comment}
               handleChangeSkillComment={this.handleChangeSkillComment}
-              isAdmin={isAdmin}
             />
           </tr>
         )
       }
     })
+
+    let sortedSkills = skills.sort(this.sortSkills)
 
     return (
       <div className="user-table-wrapper">
@@ -158,7 +179,7 @@ class UserTable extends Component{
                 {this.state.choosedCategoryName}
               </th>
             </tr>
-            {skills}
+            {sortedSkills}
           </tbody>
         </table> : 
         null} 
@@ -184,6 +205,9 @@ function mapDispathToProps(dispatch) {
       },
       editSkillsDispositionAction: function (userId, skillId, disposition) {
         dispatch(editSkillsDispositionAction(userId, skillId, disposition));
+      },
+      editSkillsCommentAction: function (userId, skillId, comment) {
+        dispatch(editSkillsCommentAction(userId, skillId, comment));
       }
     }
 

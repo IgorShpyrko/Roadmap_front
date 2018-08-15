@@ -57,7 +57,7 @@ export default class DispositionCell extends Component {
 
   render() {
 
-    const { skillDisposition, isAdmin } = this.props;
+    const { skillDisposition } = this.props;
     const { currentDisposition, isOpenedRangeEditMode } = this.state;
 
     return (
@@ -82,7 +82,8 @@ export default class DispositionCell extends Component {
               skillDisposition
             }
             min="1" 
-            max="10" 
+            max="10"
+            onFocus={this.handleChangeDisposition}
             onChange={this.handleChangeDisposition}
             onKeyDown={this.handleKeyDown}
             onBlur={this.handleBlur}/>
@@ -98,9 +99,6 @@ export default class DispositionCell extends Component {
           className='table-disposition' 
           onClick={
             () => {
-              if(!isAdmin){
-                return
-              }
               this.setState({
                 isOpenedRangeEditMode: true
               })

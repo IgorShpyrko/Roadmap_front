@@ -21,7 +21,6 @@ class Register extends Component {
   }
 
   static getDerivedStateFromProps(props){
-    console.log(props)
 
     if(props.registerStatus === 'success'){
       props.history.replace('/');

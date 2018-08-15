@@ -2,8 +2,45 @@
   width: 26%;
 }
 
-.table-comment input {
+.table-comment-content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+.table-comment-input {
   border: none;
   background-color: rgba(0, 0, 0, 0);
   outline: none;
+}
+
+.table-comment-input:focus {
+  background-color: rgb(50, 50, 50, 0.7);
+  padding: 5px;
+  border-radius: 5px;
+  color: #FFF;
+}
+
+.comment-cell-apply-btn {
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0);
+
+}
+
+.comment-cell-apply-btn img {
+  margin: 0;
+  padding: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.comment-cell-apply-btn img:hover {
+  cursor: pointer;
 }

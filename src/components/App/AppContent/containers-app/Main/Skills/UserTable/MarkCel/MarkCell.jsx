@@ -57,7 +57,7 @@ export default class MarkCell extends Component {
   
   render() {
     
-    const { skillMark, isAdmin } = this.props;
+    const { skillMark } = this.props;
     const { currentMark, isOpenedRangeEditMode } = this.state;
 
     return (
@@ -81,7 +81,8 @@ export default class MarkCell extends Component {
               skillMark
             }
             min="1" 
-            max="10" 
+            max="10"
+            onFocus={this.handleChangeMark}
             onChange={this.handleChangeMark}
             onKeyDown={this.handleKeyDown}
             onBlur={this.handleBlur}/>
@@ -97,9 +98,6 @@ export default class MarkCell extends Component {
           className='table-mark' 
           onClick={
             () => {
-              if(!isAdmin){
-                return
-              }
               this.setState({
                 isOpenedRangeEditMode: true
               })

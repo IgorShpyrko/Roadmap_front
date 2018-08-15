@@ -15,6 +15,18 @@
   background: rgba(70, 70, 70, 0.5);
 }
 
+.user-table th:hover {
+  cursor: pointer;
+  background: rgba(50, 50, 50, 0.7);
+  transition: all 0.5s ease-in-out;
+}
+
+.user-table th:active {
+  cursor: pointer;
+  background: rgba(50, 50, 50, 0.9);
+  transition: all 0.5s ease-in-out;
+}
+
 .user-table tr th {
   padding: 10px;
 }

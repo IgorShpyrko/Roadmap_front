@@ -56,14 +56,27 @@ export const editSkillsMarkAction = (userId, skillId, mark) => dispatch => {
     dispatch({ type: 'GET_CHANGED_SKILLS', payload: response.data.user });
   })
   .catch(function (error) {
+    console.error('editSkillsMarkAction', error);
   });
 }
 
 export const editSkillsDispositionAction = (userId, skillId, disposition) => dispatch => {
   axios.put('http://localhost:3010/skills', {userId, skillId, disposition})
   .then(function (response) {
+    dispatch({ type: 'GET_CHANGED_SKILLS', payload: response.data.user });
   })
   .catch(function (error) {
+    console.error('editSkillsDispositionAction', error);
+  });
+}
+
+export const editSkillsCommentAction = (userId, skillId, comment) => dispatch => {
+  axios.put('http://localhost:3010/skills', {userId, skillId, comment})
+  .then(function (response) {
+    dispatch({ type: 'GET_CHANGED_SKILLS', payload: response.data.user });
+  })
+  .catch(function (error) {
+    console.error('editSkillsCommentAction',error);
   });
 }
 
@@ -76,5 +89,6 @@ export const createSkillsAction = (skill) => dispatch => {
     })
   })
   .catch(function (error) {
+    console.error('createSkillsAction',error);
   });
 }

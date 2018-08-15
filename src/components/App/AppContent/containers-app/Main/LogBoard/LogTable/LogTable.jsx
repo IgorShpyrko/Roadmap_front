@@ -4,7 +4,8 @@ import './LogTable.css';
 
 export default class LogTable extends Component {
   state = {
-    page: 1
+    page: 1,
+    visibleOnPage: 12
   }
 
   choosePage = (e) => {
@@ -26,9 +27,9 @@ export default class LogTable extends Component {
 
   render() {
     const { log } = this.props;
-    const { page } = this.state;
+    const { page, visibleOnPage } = this.state;
 
-    const pages = log ? Math.ceil(log.data.length / 12) : null;
+    const pages = log ? Math.ceil(log.data.length / visibleOnPage) : null;
     let logNav = [];
     for(let i = 0; i < pages; i++){
       logNav.push(
@@ -38,8 +39,8 @@ export default class LogTable extends Component {
     
     const logArray = log ? log.data.sort(this.compare) : null;
     const logArrayOnPage = (log && page) ? logArray.filter((log, idx) => {
-      if(((page - 1) * 12) <= idx){
-        if(idx <= (page * 12)){
+      if(((page - 1) * visibleOnPage) <= idx){
+        if(idx <= (page * visibleOnPage)){
           return log
         }
       }

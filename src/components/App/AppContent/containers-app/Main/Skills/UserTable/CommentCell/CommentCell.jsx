@@ -2,20 +2,27 @@ import React, { Component } from 'react';
 
 import './CommentCell.css';
 
+import applyImg from 'img/apply.png';
+
 export default class CommentCell extends Component {
   state = { 
     inputValue: '',
     editMode: false
   }
 
-  handleBlur = () => {
+  handleBlur = (e) => {
+    if(e.relatedTarget){
+      if(e.relatedTarget.className === 'comment-cell-apply-btn'){
+        return
+      }
+    }
     this.clearInput();
     this.closeInput();
   }
 
   onApply = () => {
     this.props.handleChangeSkillComment({
-      newMark: this.state.inputValue,
+      newComment: this.state.inputValue,
       skillId: this.props.skillId
     });
     this.clearInput();
@@ -53,9 +60,6 @@ export default class CommentCell extends Component {
   }
 
   handleClick = () => {
-    if(!this.props.isAdmin){
-      return
-    }
     this.setState({
       editMode: true
     })
@@ -65,21 +69,30 @@ export default class CommentCell extends Component {
     const { skillComment } = this.props
     return (
       <td className='table-comment' onClick={this.handleClick}>
-        {
-          this.state.editMode ?
-          <input
-            autoFocus
-            className='table-comment-input'
-            type="text"
-            value={this.state.inputValue}
-            onChange={this.handleChangeInputValue}
-            onKeyDown={this.handleInputKeyDown}
-            onBlur={this.handleBlur}/> :
-        
-          skillComment === null ? 
-          <span>no comments</span> :
-          <span>{skillComment}</span>
-        }
+        <div className='table-comment-content'>
+          {
+            this.state.editMode ?
+            <React.Fragment>
+              <input
+                autoFocus
+                className='table-comment-input'
+                type="text"
+                value={this.state.inputValue}
+                onChange={this.handleChangeInputValue}
+                onKeyDown={this.handleInputKeyDown}
+                onBlur={this.handleBlur}/>
+                <button 
+                  className='comment-cell-apply-btn'
+                  onClick={this.onApply}>
+                  <img src={applyImg} alt="" onClick={this.onApply}/>
+                </button>
+              </React.Fragment> :
+          
+            skillComment === null ? 
+            <span>no comments</span> :
+            <span>{skillComment}</span>
+          }
+        </div>
       </td> 
     )
   }

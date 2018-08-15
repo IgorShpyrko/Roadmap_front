@@ -35,3 +35,7 @@
   height: 20px;
   border-radius: 50%;
 }
+
+.disposition-cell-apply-btn img:hover {
+  cursor: pointer;
+}
