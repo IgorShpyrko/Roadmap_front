@@ -5,7 +5,8 @@ import './LogTable.css';
 export default class LogTable extends Component {
   state = {
     page: 1,
-    visibleOnPage: 12
+    visibleOnPage: 12,
+    isSortedBy: 3
   }
 
   choosePage = (e) => {
@@ -21,8 +22,22 @@ export default class LogTable extends Component {
   }
 
   compare = (a, b) => {
-    if (a.updatedAt < b.updatedAt) return 1;
-    if (a.updatedAt > b.updatedAt) return -1;
+    if(this.state.isSortedBy === 0){
+      if (a.userSkill.skill.title > b.userSkill.skill.title) return 1;
+      if (a.userSkill.skill.title < b.userSkill.skill.title) return -1;
+    }
+    if(this.state.isSortedBy === 1){
+      if (a.skill_old < b.skill_old) return 1;
+      if (a.skill_old > b.skill_old) return -1;
+    }
+    if(this.state.isSortedBy === 2){
+      if (a.skill_new < b.skill_new) return 1;
+      if (a.skill_new > b.skill_new) return -1;
+    }
+    if(this.state.isSortedBy === 3){
+      if (a.updatedAt < b.updatedAt) return 1;
+      if (a.updatedAt > b.updatedAt) return -1;
+    }
   }
 
   render() {
@@ -30,6 +45,7 @@ export default class LogTable extends Component {
     const { page, visibleOnPage } = this.state;
 
     const pages = log ? Math.ceil(log.data.length / visibleOnPage) : null;
+
     let logNav = [];
     for(let i = 0; i < pages; i++){
       logNav.push(
@@ -37,7 +53,10 @@ export default class LogTable extends Component {
       )
     }
     
+    // sorting log
     const logArray = log ? log.data.sort(this.compare) : null;
+    
+    // how many logs are visible on a page
     const logArrayOnPage = (log && page) ? logArray.filter((log, idx) => {
       if(((page - 1) * visibleOnPage) <= idx){
         if(idx <= (page * visibleOnPage)){
@@ -45,6 +64,7 @@ export default class LogTable extends Component {
         }
       }
     }) : null
+
 
     return (
       <React.Fragment>
@@ -54,10 +74,10 @@ export default class LogTable extends Component {
         <table className='log-table'>
           <tbody className='log-table-body'>
             <tr className='log-table-row'>
-              <th className='log-table-header'>Skill Name</th>
-              <th className='log-table-header'>Prev Mark</th>
-              <th className='log-table-header'>New Mark</th>
-              <th className='log-table-header'>Update Date</th>
+              <th onClick={() => {this.setState({isSortedBy:0})}} className='log-table-header'>Skill Name</th>
+              <th onClick={() => {this.setState({isSortedBy:1})}} className='log-table-header'>Prev Mark</th>
+              <th onClick={() => {this.setState({isSortedBy:2})}} className='log-table-header'>New Mark</th>
+              <th onClick={() => {this.setState({isSortedBy:3})}} className='log-table-header'>Update Date</th>
             </tr>
           {
             log && logArrayOnPage.map((item, idx) => {
