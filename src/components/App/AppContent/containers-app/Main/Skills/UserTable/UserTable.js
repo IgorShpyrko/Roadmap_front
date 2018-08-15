@@ -110,9 +110,9 @@ class UserTable extends Component{
 
     let skills= [
       <tr key='header'>
-        <th onClick={() => {this.setState({isSortedBy:0})}}>Name</th>
-        <th onClick={() => {this.setState({isSortedBy:1})}}>Mark</th>
-        <th onClick={() => {this.setState({isSortedBy:2})}}>Aim</th>
+        <th onClick={() => {if(this.state.isSortedBy === 0){return} this.setState({isSortedBy:0})}}>Name</th>
+        <th onClick={() => {if(this.state.isSortedBy === 1){return} this.setState({isSortedBy:1})}}>Mark</th>
+        <th onClick={() => {if(this.state.isSortedBy === 2){return} this.setState({isSortedBy:2})}}>Aim</th>
         <th>Comments</th>
       </tr>
     ];

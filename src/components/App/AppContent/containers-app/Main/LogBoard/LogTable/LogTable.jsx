@@ -74,10 +74,10 @@ export default class LogTable extends Component {
         <table className='log-table'>
           <tbody className='log-table-body'>
             <tr className='log-table-row'>
-              <th onClick={() => {this.setState({isSortedBy:0})}} className='log-table-header'>Skill Name</th>
-              <th onClick={() => {this.setState({isSortedBy:1})}} className='log-table-header'>Prev Mark</th>
-              <th onClick={() => {this.setState({isSortedBy:2})}} className='log-table-header'>New Mark</th>
-              <th onClick={() => {this.setState({isSortedBy:3})}} className='log-table-header'>Update Date</th>
+              <th onClick={() => {if(this.state.isSortedBy === 0){return} this.setState({isSortedBy:0})}} className='log-table-header'>Skill Name</th>
+              <th onClick={() => {if(this.state.isSortedBy === 1){return} this.setState({isSortedBy:1})}} className='log-table-header'>Prev Mark</th>
+              <th onClick={() => {if(this.state.isSortedBy === 2){return} this.setState({isSortedBy:2})}} className='log-table-header'>New Mark</th>
+              <th onClick={() => {if(this.state.isSortedBy === 3){return} this.setState({isSortedBy:3})}} className='log-table-header'>Update Date</th>
             </tr>
           {
             log && logArrayOnPage.map((item, idx) => {
